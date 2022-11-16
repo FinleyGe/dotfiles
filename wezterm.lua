@@ -16,7 +16,8 @@ return {
   },
 -- font
   font = wezterm.font_with_fallback {
-    'FiraCode Nerd Font',
+    'Fira Code Retina',
+    'Symbols Nerd Font',
     'Noto Sans CJK SC DemiLight',
   },
 
