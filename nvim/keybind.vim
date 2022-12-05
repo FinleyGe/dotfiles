@@ -174,3 +174,4 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:copilot_no_tab_map = v:true
 imap <silent><script><expr> <C-y> copilot#Accept("\<CR>")
+

@@ -5,7 +5,11 @@ if exists('g:vscode')
 else
   " ordinary
   call plug#begin('~/.vim/plugged')
+  Plug 'godlygeek/tabular'
+  Plug 'preservim/vim-markdown'
+  Plug 'kylechui/nvim-surround'
   Plug 'junegunn/fzf.vim'
+  Plug 'nathanaelkane/vim-indent-guides'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'crusoexia/vim-monokai'

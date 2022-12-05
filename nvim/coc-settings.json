@@ -56,8 +56,10 @@
   },
   "cSpell.userWords": [
     "Ausu",
+    "Neovim",
     "bcrypt",
     "gorm",
+    "nvim",
     "pinia",
     "vite",
     "vitejs"

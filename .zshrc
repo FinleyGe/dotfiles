@@ -128,8 +128,9 @@ export ANDROID_SDK=$HOME/$ANDROID
 export PATH=$ANDROID_SDK:$PATH
 export PATH=$PATH:/usr/local/go/bin:~/.cargo/bin
 export PATH=$PATH:/home/finley/Applications
-export PATH=$PATH:/opt/scripts:/opt/cdls
+export PATH=$PATH:/opt/scripts:/opt/cdls:~/.local/bin
 export CLASSPATH=.:/opt/tomcat/tomcat/lib/servlet-api.jar
+export JAVA_HOME="/usr/lib/jvm/default-java"
 export GOROOT=/usr/lib/go-1.19
 # pnpm
 export PNPM_HOME="/home/finley/.local/share/pnpm"

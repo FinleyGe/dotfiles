@@ -112,3 +112,4 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+let g:indent_guides_enable_on_vim_startup = 1 " Auto enable indent guides when vim starts
