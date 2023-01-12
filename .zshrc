@@ -85,19 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export GOPROXY=https://proxy.golang.com.cn,direct
 export GOPRIVATE=git.mycompany.com,github.com/my/private
-# export MANPATH="/usr/local/man:$MANPATH" 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -105,8 +94,8 @@ export GOPRIVATE=git.mycompany.com,github.com/my/private
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 # source /home/finley/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias vim="nvim"
 alias rm=del
@@ -120,17 +109,12 @@ cleardel() {
   /bin/rm -rf ~/.trash/*   
 }
 
-export ANDROID=$HOME/Android
-export PATH=$ANDROID/cmdline-tools/tools:$PATH
-export PATH=$ANDROID/cmdline-tools/tools/bin:$PATH
-export PATH=$ANDROID/platform-tools:$PATH
-export ANDROID_SDK=$HOME/$ANDROID
-export PATH=$ANDROID_SDK:$PATH
 export PATH=$PATH:/usr/local/go/bin:~/.cargo/bin
 export PATH=$PATH:/home/finley/Applications
 export PATH=$PATH:/opt/scripts:/opt/cdls:~/.local/bin
-export CLASSPATH=.:/opt/tomcat/tomcat/lib/servlet-api.jar
-export JAVA_HOME="/usr/lib/jvm/default-java"
+export CLASSPATH=.:/opt/tomcat/tomcat/lib/servlet-api.jar:~/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar:~/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar
+
+export JAVA_HOME="/usr/lib/jvm/default"
 export GOROOT=/usr/lib/go-1.19
 # pnpm
 export PNPM_HOME="/home/finley/.local/share/pnpm"
@@ -138,10 +122,12 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # Set Proxy
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7890
+# export https_proxy=http://127.0.0.1:7890
+# export http_proxy=http://127.0.0.1:7890
+# export all_proxy=socks5://127.0.0.1:7890
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -n "$WEZTERM_PANE" ] && export NVIM_LISTEN_ADDRESS="/tmp/nvim$WEZTERM_PANE"

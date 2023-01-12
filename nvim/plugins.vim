@@ -32,5 +32,6 @@ else
   Plug 'ryanoasis/vim-devicons' " always load last one
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'gpanders/editorconfig.nvim'
   call plug#end()
 endif

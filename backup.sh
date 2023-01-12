@@ -10,4 +10,5 @@ cp ~/.config/kitty/kitty.conf $backup
 cp ~/.hyper.js $backup
 echo dotfiles copied
 
+git add .
 git commit -a -m $timeNow
