@@ -34,13 +34,37 @@ packer.startup(function(use)
   use('hrsh7th/cmp-cmdline')
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-nvim-lsp')
+
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
+  use 'SirVer/ultisnips'
   use('preservim/vimux')
   use('christoomey/vim-tmux-navigator')
 
   use('alvan/vim-closetag')
+  use('j-hui/fidget.nvim')
+
+  use 'lervag/vimtex'
+
+  use {
+    "iurimateus/luasnip-latex-snippets.nvim",
+    -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
+    -- using treesitter.
+    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require 'luasnip-latex-snippets'.setup()
+      -- or setup({ use_treesitter = true })
+    end,
+    ft = "tex",
+  }
+
+  use {
+    'github/copilot.vim',
+  }
+
+  use "rafamadriz/friendly-snippets"
+
 end)
 
 -- setup plugins
@@ -49,6 +73,7 @@ require("plugin.bufferline")
 require('plugin.lualine')
 require('plugin.mason')
 require("plugin.nvim-tree")
+require('plugin.vimtex')
 require('plugin.others')
 require('plugin.treesitter')
 require("plugin.nvim-cmp")

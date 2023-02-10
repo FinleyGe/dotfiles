@@ -29,7 +29,9 @@ local lsp = {
   'texlab',
   'tsserver',
   'cssls',
+  'cmake',
 };
+
 for _, v in ipairs(lsp) do
   require('lspconfig')[v].setup { opts }
 end
