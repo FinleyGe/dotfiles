@@ -12,3 +12,4 @@ echo dotfiles copied
 
 git add .
 git commit -a -m $timeNow
+git push
