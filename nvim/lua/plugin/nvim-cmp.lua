@@ -6,15 +6,25 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      require('ultisnips').lsp_expand(args.body) -- For `ultisnips` users.')
+      vim.fn["UltiSnips#Anon"](args.body)      -- For `ultisnips` users.
     end,
   },
-  mapping = require("keybindings").cmp(cmp),
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true }),
+    ['<tab>'] = cmp.mapping.select_next_item(),
+    ['<s-tab>'] = cmp.mapping.select_prev_item(),
+    ['<c-space>'] = cmp.mapping.complete(),
+  }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip' }, -- For luasnip users.
-    { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'luasnip' },
+    { name = 'ultisnips' },
     { name = 'copilot' },
   }, {
     { name = 'buffer' },

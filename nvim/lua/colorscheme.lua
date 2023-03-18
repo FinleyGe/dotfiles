@@ -1,2 +1,2 @@
 -- vim.cmd[[colorscheme tokyonight]]
-vim.cmd[[colorscheme monokai_pro]]
+vim.cmd [[colorscheme monokai_pro]]

@@ -8,6 +8,8 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
+
+require('nvim-ts-autotag').setup()
 -- 开启 Folding
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'

@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 # Auto Back up the dotfiles.
-backup=~/project/dotfiles
+backup=./
 timeNow=`date --iso-8601=seconds`
 cp ~/.config/nvim $backup -r
 cp ~/.config/wezterm/wezterm.lua $backup

@@ -115,7 +115,7 @@ export PATH=$PATH:/opt/scripts:/opt/cdls:~/.local/bin
 export CLASSPATH=.:/opt/tomcat/tomcat/lib/servlet-api.jar:~/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar:~/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar
 
 export JAVA_HOME="/usr/lib/jvm/default"
-export GOROOT=/usr/lib/go-1.19
+export GOROOT=/usr/lib/go
 # pnpm
 export PNPM_HOME="/home/finley/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"

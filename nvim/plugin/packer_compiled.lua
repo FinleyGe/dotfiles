@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
+    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -212,6 +217,11 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -251,11 +261,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  ["vim-closetag"] = {
-    loaded = true,
-    path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-closetag",
-    url = "https://github.com/alvan/vim-closetag"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

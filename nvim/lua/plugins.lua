@@ -14,6 +14,7 @@ packer.startup(function(use)
   use("nvim-telescope/telescope.nvim")
   use('numToStr/Comment.nvim')
   use("nvim-treesitter/nvim-treesitter")
+  use("windwp/nvim-ts-autotag")
   use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
   use('nvim-tree/nvim-tree.lua')
   use('windwp/nvim-autopairs')
@@ -37,12 +38,11 @@ packer.startup(function(use)
 
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-
   use 'SirVer/ultisnips'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
   use('preservim/vimux')
   use('christoomey/vim-tmux-navigator')
 
-  use('alvan/vim-closetag')
   use('j-hui/fidget.nvim')
 
   use 'lervag/vimtex'
@@ -62,9 +62,14 @@ packer.startup(function(use)
   use {
     'github/copilot.vim',
   }
-
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
   use "rafamadriz/friendly-snippets"
-
 end)
 
 -- setup plugins
