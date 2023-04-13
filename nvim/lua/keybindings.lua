@@ -57,4 +57,7 @@ map("n", "<Leader>dj", "<Plug>VimspectorStepOver", opt)
 map("n", "<Leader>dk", "<Plug>VimspectorStepOut", opt)
 map("n", "<Leader>dl", "<Plug>VimspectorStepInto", opt)
 
+-- hop
+map("n", "<Leader>h", "<cmd>HopWordCurrentLine<CR>", opt)
+map("n", "<Leader>l", "<cmd>HopLine<CR>", opt)
 return pluginKeys

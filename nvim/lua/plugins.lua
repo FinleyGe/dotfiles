@@ -45,6 +45,7 @@ packer.startup(function(use)
 
   use('j-hui/fidget.nvim')
 
+  use('phaazon/hop.nvim')
   use 'lervag/vimtex'
 
   use {
@@ -70,6 +71,19 @@ packer.startup(function(use)
     end
   }
   use "rafamadriz/friendly-snippets"
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 end)
 
 -- setup plugins

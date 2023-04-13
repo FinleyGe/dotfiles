@@ -1,6 +1,6 @@
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
-
+require("luasnip.loaders.from_snipmate").lazy_load()
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine

@@ -19,6 +19,7 @@ local lsp = {
   'tsserver',
   'cmake',
   'stylelint_lsp',
+  'sqlls',
 };
 
 require("mason").setup({
