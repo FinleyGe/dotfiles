@@ -3,7 +3,6 @@
 $cumtom_commit_message=$1 // optional
 
 backup=./
-timeNow=`date --iso-8601=seconds`
 cp ~/.config/nvim $backup -r
 cp ~/.config/wezterm/wezterm.lua $backup
 cp ~/.zshrc $backup
@@ -14,5 +13,5 @@ cp ~/.config/fish $backup -r
 echo dotfiles copied
 
 git add .
-git commit -a -m $timeNow $custom_commit_message
+git commit -a -m `date --iso-8601=seconds $cumtom_commit_message`
 git push
