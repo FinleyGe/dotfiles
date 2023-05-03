@@ -7,7 +7,7 @@ require("transparent").setup({
 })
 
 require("Comment").setup {}
-
-require('better-comment').Setup()
+require("todo-comments").setup {}
 require('fidget').setup {}
 require('hop').setup {}
+require('chatgpt').setup {}

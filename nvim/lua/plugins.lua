@@ -7,7 +7,8 @@ packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use("kyazdani42/nvim-web-devicons")
   use 'xiyaowong/nvim-transparent'
-  use "Djancyp/better-comments.nvim"
+  use 'norcalli/nvim-colorizer.lua'
+  use "folke/todo-comments.nvim"
   -- tools
   use("nvim-lua/plenary.nvim")
   use("nvim-lua/popup.nvim")
@@ -50,40 +51,20 @@ packer.startup(function(use)
 
   use {
     "iurimateus/luasnip-latex-snippets.nvim",
-    -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
-    -- using treesitter.
     requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = function()
       require 'luasnip-latex-snippets'.setup()
-      -- or setup({ use_treesitter = true })
     end,
     ft = "tex",
   }
 
-  use {
-    'github/copilot.vim',
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  }
-  use "rafamadriz/friendly-snippets"
+  use 'github/copilot.vim'
 
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-      require("which-key").setup {}
-    end
-  }
-  use({
-    "Bryley/neoai.nvim",
-    require = { "MunifTanjim/nui.nvim" },
-  })
+  use "zbirenbaum/copilot-cmp"
+
+  use "rafamadriz/friendly-snippets"
+  use "MunifTanjim/nui.nvim"
+  use "jackMort/ChatGPT.nvim"
 end)
 
 -- setup plugins

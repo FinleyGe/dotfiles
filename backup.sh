@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 # Auto Back up the dotfiles.
-$cumtom_commit_message=$1 // optional
+$cumtom_commit_message=$1 # optional
 
 backup=./
 cp ~/.config/nvim $backup -r

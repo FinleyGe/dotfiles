@@ -16,7 +16,7 @@ config.window_background_image_hsb = {
 config.font = wezterm.font_with_fallback {
   'Fira Code Retina',
   'Symbols Nerd Font',
-  'Noto Sans CJK SC DemiLight',
+  'LXGW Neo XiHei',
 }
 config.font_size = 16
 config.harfbuzz_features = { 'liga = 1' }

@@ -1,3 +1,5 @@
+require("fidget").setup {}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local opts = {
   capabilities = capabilities,
@@ -20,6 +22,7 @@ local mason_lsp = {
   'cmake',
   'stylelint_lsp',
   'sqlls',
+  'bzl',
 };
 
 require("mason").setup({
@@ -51,6 +54,8 @@ local lsp = {
   'stylelint_lsp',
   'sqlls',
   'typst_lsp',
+  'bufls',
+  'bzl',
 };
 
 for _, v in ipairs(lsp) do
