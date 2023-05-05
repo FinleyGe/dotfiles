@@ -54,6 +54,7 @@ local lsp = {
   'sqlls',
   'typst_lsp',
   'bufls',
+  'dartls',
 };
 
 for _, v in ipairs(lsp) do

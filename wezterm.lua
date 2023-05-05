@@ -14,12 +14,23 @@ config.window_background_image_hsb = {
 }
 
 config.font = wezterm.font_with_fallback {
-  'Fira Code Retina',
-  'Symbols Nerd Font',
+  'FiraCode Nerd Font Mono',
+  'Victor Mono',
+  -- 'Noto Sans CJK SC',
   'LXGW Neo XiHei',
 }
+
+config.font_rules = {
+  {
+    italic = true,
+    font = wezterm.font_with_fallback {
+      'Victor Mono',
+      { family = 'Zhi Mang Xing', scale = 1.2 }
+    },
+  }
+}
 config.font_size = 16
-config.harfbuzz_features = { 'liga = 1' }
+-- config.harfbuz_features = { 'liga = 1' }
 
 return config
 
