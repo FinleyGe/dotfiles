@@ -1,77 +1,70 @@
 local packer = require("packer")
 
 packer.startup(function(use)
+  -- Packer
   use("wbthomason/packer.nvim")
+
   -- beautify
-  use 'tanvirtin/monokai.nvim'
-  use 'folke/tokyonight.nvim'
-  use("kyazdani42/nvim-web-devicons")
-  use 'xiyaowong/nvim-transparent'
-  use 'norcalli/nvim-colorizer.lua'
-  use "folke/todo-comments.nvim"
+  use('folke/tokyonight.nvim')           -- Theme
+  use("kyazdani42/nvim-web-devicons")    -- Icons
+  use('xiyaowong/nvim-transparent')      -- Transparent
+  use('j-hui/fidget.nvim')               -- show the lsp status
+  -- dependences and libs
+  use("nvim-lua/plenary.nvim")           -- lua lib
+  use("MunifTanjim/nui.nvim")            -- UI lib
   -- tools
-  use("nvim-lua/plenary.nvim")
-  use("nvim-lua/popup.nvim")
-  use("nvim-telescope/telescope.nvim")
-  use('numToStr/Comment.nvim')
-  use("nvim-treesitter/nvim-treesitter")
-  use("windwp/nvim-ts-autotag")
-  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
-  use('nvim-tree/nvim-tree.lua')
-  use('windwp/nvim-autopairs')
-  use('kylechui/nvim-surround')
-  use('nvim-lualine/lualine.nvim')
-  use('moll/vim-bbye')
-  use('wakatime/vim-wakatime')
+  use('akinsho/bufferline.nvim')         -- bufferline
+  use('nvim-lualine/lualine.nvim')       -- statusline
+  use('nvim-tree/nvim-tree.lua')         -- file tree
+  use('norcalli/nvim-colorizer.lua')     -- display the color
+  use("folke/todo-comments.nvim")        -- beautify the Comments
+  use('simrat39/symbols-outline.nvim')   -- outline by symbols
+  use("nvim-telescope/telescope.nvim")   -- fuzzy finder
+  use('numToStr/Comment.nvim')           -- Comment
+  use("nvim-treesitter/nvim-treesitter") -- treesitter
+  use("windwp/nvim-ts-autotag")          -- treesitter auto tag
+  use('windwp/nvim-autopairs')           -- auto pairs
+  use('kylechui/nvim-surround')          -- surround
+  use('moll/vim-bbye')                   -- delete buffer
+  use('wakatime/vim-wakatime')           -- wakatime
+  use('tpope/vim-fugitive')              -- Git
+  use('preservim/vimux')                 -- vim + tmux
+  use('christoomey/vim-tmux-navigator')  -- vim + tmux
+  use('github/copilot.vim')
+  use("jackMort/ChatGPT.nvim")
+  use('phaazon/hop.nvim')                      -- motion
   -- lsp
-  use("neovim/nvim-lspconfig")
-  use("nvim-lua/lsp-status.nvim")
-  use { "williamboman/mason.nvim" }
-  use "williamboman/mason-lspconfig.nvim"
-  use("tami5/lspsaga.nvim")
-  use 'mfussenegger/nvim-jdtls'
+  use("neovim/nvim-lspconfig")                 -- lspconfig
+  use("nvim-lua/lsp-status.nvim")              -- lsp status
+  use { "williamboman/mason.nvim" }            -- mason
+  use "williamboman/mason-lspconfig.nvim"      -- mason-lspconfig
+  use("tami5/lspsaga.nvim")                    -- lspsaga
+  use 'lervag/vimtex'                          -- TeX
+  use { 'kaarmu/typst.vim', ft = { 'typst' } } -- typst
   -- completion
-  use('hrsh7th/cmp-buffer')
+  use('hrsh7th/nvim-cmp')                      -- cmp
+  use('hrsh7th/cmp-buffer')                    -- source for nvim-cmp
   use('hrsh7th/cmp-path')
   use('hrsh7th/cmp-cmdline')
-  use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-nvim-lsp')
-
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'SirVer/ultisnips'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
-  use('preservim/vimux')
-  use('christoomey/vim-tmux-navigator')
-
-  use('j-hui/fidget.nvim')
-
-  use('phaazon/hop.nvim')
-  use 'lervag/vimtex'
-
+  use('saadparwaiz1/cmp_luasnip')
+  use("zbirenbaum/copilot-cmp")
+  -- snippets
+  use('L3MON4D3/LuaSnip')
+  use("molleweide/LuaSnip-snippets.nvim")
+  use('SirVer/ultisnips')
+  use('quangnguyen30192/cmp-nvim-ultisnips')
   use {
     "iurimateus/luasnip-latex-snippets.nvim",
-    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = function()
-      require 'luasnip-latex-snippets'.setup()
-    end,
     ft = "tex",
   }
-
-  use 'github/copilot.vim'
-
-  use "zbirenbaum/copilot-cmp"
-
-  use "rafamadriz/friendly-snippets"
-  use "MunifTanjim/nui.nvim"
-  use "jackMort/ChatGPT.nvim"
+  use("rafamadriz/friendly-snippets")
 end)
 
 -- setup plugins
 require('plugin.auto-pairs')
 require("plugin.bufferline")
 require('plugin.lualine')
-require('plugin.mason')
 require("plugin.nvim-tree")
 require('plugin.vimtex')
 require('plugin.others')

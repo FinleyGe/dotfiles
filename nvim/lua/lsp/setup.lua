@@ -22,6 +22,7 @@ local mason_lsp = {
   'cmake',
   'stylelint_lsp',
   'sqlls',
+  'svls',
 };
 
 require("mason").setup({
@@ -55,6 +56,7 @@ local lsp = {
   'typst_lsp',
   'bufls',
   'dartls',
+  'svls',
 };
 
 for _, v in ipairs(lsp) do

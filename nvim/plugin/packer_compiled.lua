@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["LuaSnip-snippets.nvim"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/LuaSnip-snippets.nvim",
+    url = "https://github.com/molleweide/LuaSnip-snippets.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -165,7 +170,6 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["luasnip-latex-snippets.nvim"] = {
-    config = { "\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27luasnip-latex-snippets\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -181,11 +185,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["monokai.nvim"] = {
-    loaded = true,
-    path = "/home/finley/.local/share/nvim/site/pack/packer/start/monokai.nvim",
-    url = "https://github.com/tanvirtin/monokai.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -206,11 +205,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
-  ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
-    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -257,10 +251,10 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
+  ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "/home/finley/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -277,6 +271,13 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["typst.vim"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/opt/typst.vim",
+    url = "https://github.com/kaarmu/typst.vim"
+  },
   ultisnips = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/ultisnips",
@@ -286,6 +287,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
@@ -314,8 +320,14 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType typst ++once lua require("packer.load")({'typst.vim'}, { ft = "typst" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'luasnip-latex-snippets.nvim'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/finley/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], true)
+vim.cmd [[source /home/finley/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]]
+time([[Sourcing ftdetect script at: /home/finley/.local/share/nvim/site/pack/packer/opt/typst.vim/ftdetect/typst.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
