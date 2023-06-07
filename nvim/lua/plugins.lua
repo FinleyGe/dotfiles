@@ -5,10 +5,12 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- beautify
-  use('folke/tokyonight.nvim')           -- Theme
-  use("kyazdani42/nvim-web-devicons")    -- Icons
-  use('xiyaowong/nvim-transparent')      -- Transparent
-  use('j-hui/fidget.nvim')               -- show the lsp status
+  use('folke/tokyonight.nvim')        -- Theme
+  use("kyazdani42/nvim-web-devicons") -- Icons
+  use('xiyaowong/nvim-transparent')   -- Transparent
+  use('j-hui/fidget.nvim')            -- show the lsp status
+  use('HiPhish/nvim-ts-rainbow2')     -- rainbow
+  use("lukas-reineke/indent-blankline.nvim")
   -- dependences and libs
   use("nvim-lua/plenary.nvim")           -- lua lib
   use("MunifTanjim/nui.nvim")            -- UI lib
@@ -33,6 +35,7 @@ packer.startup(function(use)
   use('github/copilot.vim')
   use("jackMort/ChatGPT.nvim")
   use('phaazon/hop.nvim')                      -- motion
+  use('mg979/vim-visual-multi')                --vim-visual-multi
   -- lsp
   use("neovim/nvim-lspconfig")                 -- lspconfig
   use("nvim-lua/lsp-status.nvim")              -- lsp status

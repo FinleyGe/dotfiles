@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
@@ -236,6 +241,11 @@ _G.packer_plugins = {
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
+  ["nvim-ts-rainbow2"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow2",
+    url = "https://github.com/HiPhish/nvim-ts-rainbow2"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -297,6 +307,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/finley/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   },
   ["vim-wakatime"] = {
     loaded = true,

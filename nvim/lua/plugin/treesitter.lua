@@ -6,6 +6,12 @@ require 'nvim-treesitter.configs'.setup {
   },
   autotag = {
     enable = true,
+  },
+
+  rainbow = {
+    enable = true,
+    query = 'rainbow-parens',
+    strategy = require('ts-rainbow').strategy.global,
   }
 }
 
