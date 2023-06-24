@@ -47,7 +47,9 @@ map("n", ";g", ":Telescope live_grep<CR>", opt)
 
 -- copilot
 vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-y>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 map("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", opt)
 map("n", "<Leader>ca", "<cmd>Lspsaga code_action<CR>", opt)

@@ -1,11 +1,11 @@
-require('bufferline').setup{
+require('bufferline').setup {
   options = {
     numbers = "ordinal",
     number_style = "superscript",
     mappings = true,
-    buffer_close_icon = "",
+    buffer_close_icon = "x",
     modified_icon = "",
-    close_icon = "",
+    close_icon = "x",
     left_trunc_marker = "",
     right_trunc_marker = "",
     max_name_length = 18,
@@ -19,13 +19,13 @@ require('bufferline').setup{
     enforce_regular_tabs = false,
     always_show_bufferline = true,
 
-      offsets = {
-    {
-      filetype = "NvimTree",
-      text = "File Explorer",
-      highlight = "Directory",
-      text_align = "center"
-    }
-  },
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        highlight = "Directory",
+        text_align = "center"
+      }
+    },
   }
 }

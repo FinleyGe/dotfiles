@@ -5,11 +5,12 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- beautify
-  use('folke/tokyonight.nvim')        -- Theme
-  use("kyazdani42/nvim-web-devicons") -- Icons
-  use('xiyaowong/nvim-transparent')   -- Transparent
-  use('j-hui/fidget.nvim')            -- show the lsp status
-  use('HiPhish/nvim-ts-rainbow2')     -- rainbow
+  -- use('folke/tokyonight.nvim')        -- Theme
+  use('tanvirtin/monokai.nvim')
+  use("kyazdani42/nvim-web-devicons")    -- Icons
+  use('xiyaowong/nvim-transparent')      -- Transparent
+  use { 'j-hui/fidget.nvim', tag = "legacy" } -- show the lsp status
+  use('HiPhish/nvim-ts-rainbow2')        -- rainbow
   use("lukas-reineke/indent-blankline.nvim")
   -- dependences and libs
   use("nvim-lua/plenary.nvim")           -- lua lib

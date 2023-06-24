@@ -26,7 +26,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'copilot' },
+    { name = 'copilot', group_index = 1 },
   }, {
     { name = 'buffer' },
     { name = "path" },
