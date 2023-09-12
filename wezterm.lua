@@ -6,6 +6,9 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+config.initial_cols = 150
+config.initial_rows = 40
+
 config.window_background_opacity = 0.8
 config.window_background_image_hsb = {
   brightness = 0.8,
@@ -32,6 +35,7 @@ config.font_rules = {
     },
   }
 }
+
 config.font_size = 14
 
 return config

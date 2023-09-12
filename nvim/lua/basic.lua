@@ -60,10 +60,10 @@ vim.o.timeoutlen = 500
 
 vim.o.termguicolors = true
 
-vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()']])
+vim.loader.enable()
 
--- format when save
-vim.cmd([[ autocmd BufWritePre * Format ]])
+-- format with lsp directly. plan to deprecate this
+vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()']])
 
 local notify = vim.notify
 vim.notify = function(msg, ...)

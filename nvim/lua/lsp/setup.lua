@@ -18,9 +18,7 @@ local mason_lsp = {
   'texlab',
   'html',
   'texlab',
-  'tsserver',
   'cmake',
-  'stylelint_lsp',
   'sqlls',
   'svls',
 };
@@ -43,22 +41,29 @@ local lsp = {
   'lua_ls',
   'jdtls',
   'pyright',
-  'volar',
+  -- 'volar', -- NOTE: mantually config
   'gopls',
   'clangd',
   'texlab',
   'html',
   'texlab',
-  'tsserver',
+  -- 'tsserver', --NOTE: we do not need it anymore
   'cmake',
-  'stylelint_lsp',
   'sqlls',
   'typst_lsp',
   'bufls',
   'dartls',
   'svls',
+  'rust_analyzer',
+  'eslint',
 };
 
 for _, v in ipairs(lsp) do
   require('lspconfig')[v].setup { opts }
 end
+
+require('lspconfig')['volar'].setup {
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+}
+
+require('lsp.guard-config')

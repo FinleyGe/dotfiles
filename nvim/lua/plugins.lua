@@ -7,14 +7,15 @@ packer.startup(function(use)
   -- beautify
   -- use('folke/tokyonight.nvim')        -- Theme
   use('tanvirtin/monokai.nvim')
-  use("kyazdani42/nvim-web-devicons")    -- Icons
-  use('xiyaowong/nvim-transparent')      -- Transparent
+  use("kyazdani42/nvim-web-devicons")         -- Icons
+  use('xiyaowong/nvim-transparent')           -- Transparent
   use { 'j-hui/fidget.nvim', tag = "legacy" } -- show the lsp status
-  use('HiPhish/nvim-ts-rainbow2')        -- rainbow
+  use('HiPhish/nvim-ts-rainbow2')             -- rainbow
   use("lukas-reineke/indent-blankline.nvim")
   -- dependences and libs
-  use("nvim-lua/plenary.nvim")           -- lua lib
-  use("MunifTanjim/nui.nvim")            -- UI lib
+  use("nvim-lua/plenary.nvim") -- lua lib
+  use("MunifTanjim/nui.nvim")  -- UI lib
+  use("SmiteshP/nvim-navic")
   -- tools
   use('akinsho/bufferline.nvim')         -- bufferline
   use('nvim-lualine/lualine.nvim')       -- statusline
@@ -35,8 +36,10 @@ packer.startup(function(use)
   use('christoomey/vim-tmux-navigator')  -- vim + tmux
   use('github/copilot.vim')
   use("jackMort/ChatGPT.nvim")
-  use('phaazon/hop.nvim')                      -- motion
-  use('mg979/vim-visual-multi')                --vim-visual-multi
+  use('phaazon/hop.nvim')       -- motion
+  use('mg979/vim-visual-multi') --vim-visual-multi
+  use('utilyre/barbecue.nvim')
+  use("folke/trouble.nvim")
   -- lsp
   use("neovim/nvim-lspconfig")                 -- lspconfig
   use("nvim-lua/lsp-status.nvim")              -- lsp status
@@ -45,6 +48,7 @@ packer.startup(function(use)
   use("tami5/lspsaga.nvim")                    -- lspsaga
   use 'lervag/vimtex'                          -- TeX
   use { 'kaarmu/typst.vim', ft = { 'typst' } } -- typst
+  use("nvimdev/guard.nvim")                    -- guard
   -- completion
   use('hrsh7th/nvim-cmp')                      -- cmp
   use('hrsh7th/cmp-buffer')                    -- source for nvim-cmp
