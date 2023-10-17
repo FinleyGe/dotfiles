@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export PYENV_ROOT:/home/finley/\x2epyenv
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/finley/\x2elocal/share/z/data
@@ -52,4 +53,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/anaconda/bin\x1e/home/finley/go/bin\x1e/home/finley/\x2epub\x2dcache/bin\x1e/home/finley/\x2elocal/bin
+SETUVAR fish_user_paths:/home/finley/\x2epyenv/bin\x1e/opt/anaconda/bin\x1e/home/finley/go/bin\x1e/home/finley/\x2epub\x2dcache/bin\x1e/home/finley/\x2elocal/bin

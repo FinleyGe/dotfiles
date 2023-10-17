@@ -11,10 +11,11 @@ packer.startup(function(use)
   use('xiyaowong/nvim-transparent')           -- Transparent
   use { 'j-hui/fidget.nvim', tag = "legacy" } -- show the lsp status
   use('HiPhish/nvim-ts-rainbow2')             -- rainbow
-  use("lukas-reineke/indent-blankline.nvim")
+  use("lukas-reineke/indent-blankline.nvim")  -- indentline
+  use("petertriho/nvim-scrollbar")            -- scrollbar
   -- dependences and libs
-  use("nvim-lua/plenary.nvim") -- lua lib
-  use("MunifTanjim/nui.nvim")  -- UI lib
+  use("nvim-lua/plenary.nvim")                -- lua lib
+  use("MunifTanjim/nui.nvim")                 -- UI lib
   use("SmiteshP/nvim-navic")
   -- tools
   use('akinsho/bufferline.nvim')         -- bufferline

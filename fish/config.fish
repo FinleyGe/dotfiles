@@ -18,3 +18,4 @@ set fish_greeting ""
 # end
 # # <<< conda initialize <<<
 #
+pyenv init - | source
