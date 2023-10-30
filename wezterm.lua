@@ -19,8 +19,6 @@ config.window_background_image_hsb = {
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font Mono',
   'Victor Mono',
-  -- 'LXGW WenKai Mono'
-  -- 'Noto Sans CJK SC',
   'LXGW Neo XiHei',
 }
 

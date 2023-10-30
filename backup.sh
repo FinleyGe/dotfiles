@@ -10,6 +10,8 @@ cp ~/.tmux.conf $backup
 cp ~/.config/kitty/kitty.conf $backup
 cp ~/.hyper.js $backup
 cp ~/.config/fish $backup -r
+cp ~/.gitconfig $backup
+
 echo dotfiles copied
 
 git add .

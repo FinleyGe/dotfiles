@@ -1,4 +1,16 @@
 local packer = require("packer")
+-- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- if not vim.loop.fs_stat(lazypath) then
+--   vim.fn.system({
+--     "git",
+--     "clone",
+--     "--filter=blob:none",
+--     "https://github.com/folke/lazy.nvim.git",
+--     "--branch=stable", -- latest stable release
+--     lazypath,
+--   })
+-- end
+-- vim.opt.rtp:prepend(lazypath)
 
 packer.startup(function(use)
   -- Packer
@@ -7,15 +19,15 @@ packer.startup(function(use)
   -- beautify
   -- use('folke/tokyonight.nvim')        -- Theme
   use('tanvirtin/monokai.nvim')
-  use("kyazdani42/nvim-web-devicons")         -- Icons
-  use('xiyaowong/nvim-transparent')           -- Transparent
-  use { 'j-hui/fidget.nvim', tag = "legacy" } -- show the lsp status
-  use('HiPhish/nvim-ts-rainbow2')             -- rainbow
-  use("lukas-reineke/indent-blankline.nvim")  -- indentline
-  use("petertriho/nvim-scrollbar")            -- scrollbar
+  use("kyazdani42/nvim-web-devicons")        -- Icons
+  use('xiyaowong/nvim-transparent')          -- Transparent
+  -- use { 'j-hui/fidget.nvim', tag='legacy' }                -- show the lsp status
+  use('HiPhish/nvim-ts-rainbow2')            -- rainbow
+  use("lukas-reineke/indent-blankline.nvim") -- indentline
+  use("petertriho/nvim-scrollbar")           -- scrollbar
   -- dependences and libs
-  use("nvim-lua/plenary.nvim")                -- lua lib
-  use("MunifTanjim/nui.nvim")                 -- UI lib
+  use("nvim-lua/plenary.nvim")               -- lua lib
+  use("MunifTanjim/nui.nvim")                -- UI lib
   use("SmiteshP/nvim-navic")
   -- tools
   use('akinsho/bufferline.nvim')         -- bufferline
@@ -36,7 +48,7 @@ packer.startup(function(use)
   use('preservim/vimux')                 -- vim + tmux
   use('christoomey/vim-tmux-navigator')  -- vim + tmux
   use('github/copilot.vim')
-  use("jackMort/ChatGPT.nvim")
+  -- use("jackMort/ChatGPT.nvim")
   use('phaazon/hop.nvim')       -- motion
   use('mg979/vim-visual-multi') --vim-visual-multi
   use('utilyre/barbecue.nvim')

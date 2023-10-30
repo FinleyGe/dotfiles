@@ -5,12 +5,11 @@ require("transparent").setup({
     -- example of akinsho/nvim-bufferline.lua
   },
 })
+
 require("colorizer").setup()
 require("Comment").setup {}
 require("todo-comments").setup {}
-require('fidget').setup {}
 require('hop').setup {}
-require('chatgpt').setup {}
 require('symbols-outline').setup {}
 
 local highlight = {
