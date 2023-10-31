@@ -1,5 +1,2 @@
 require("basic")
-require("plugins")
-require("keybindings")
-require("colorscheme")
-require("lsp.setup")
+require("plugin")

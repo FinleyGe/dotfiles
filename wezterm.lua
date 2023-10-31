@@ -17,11 +17,11 @@ config.window_background_image_hsb = {
 }
 
 config.font = wezterm.font_with_fallback {
-  'FiraCode Nerd Font Mono',
-  'Victor Mono',
+  'FiraCode Nerd Font',
+  -- 'Victor Mono',
   'LXGW Neo XiHei',
 }
-
+config.warn_about_missing_glyphs = false
 
 config.font_rules = {
   {

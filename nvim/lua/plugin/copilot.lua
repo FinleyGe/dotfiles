@@ -1,5 +1,5 @@
 require("copilot.vim").setup({
-  suggestion = { enabled = false },
+  suggestion = { enabled = true },
   panel = { enabled = false },
 })
 require("copilot_cmp").setup()
