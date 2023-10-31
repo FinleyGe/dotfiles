@@ -11,6 +11,7 @@ cp ~/.config/kitty/kitty.conf $backup
 cp ~/.hyper.js $backup
 cp ~/.config/fish $backup -r
 cp ~/.gitconfig $backup
+cp ~/.config/starship.toml $backup
 
 echo dotfiles copied
 
