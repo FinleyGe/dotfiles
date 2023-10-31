@@ -44,19 +44,10 @@ return {
   {
     "tpope/vim-fugitive",
     cmd = "Git",
-    opts = {},
   },
   {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
-  },
-  {
-    "utilyre/barbecue.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "SmiteshP/nvim-navic"
-    },
-    opts = {},
   },
   {
     "folke/trouble.nvim",
@@ -68,8 +59,10 @@ return {
   },
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
   },
   {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
   }
 }

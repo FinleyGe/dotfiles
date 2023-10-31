@@ -1,10 +1,7 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+capabilities.offsetEncoding = { "utf-8", "utf-16" }
 local opts = {
   capabilities = capabilities,
-  -- on_attach = function(client, bufnr)
-  --   client.server_capabilities.documentFormattingProvider = false
-  -- end,
 }
 
 require("mason").setup({
@@ -53,3 +50,12 @@ require('lspconfig')['volar'].setup {
 -- require('lsp.guard-config')
 
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()']])
+
+local notify = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match("warning: multiple different client offset_encodings") then
+    return
+  end
+
+  notify(msg, ...)
+end

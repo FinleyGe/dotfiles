@@ -17,15 +17,8 @@ require('lazy').setup({
   require('plugin.snippets'),
   require('plugin.nvim-cmp'),
   require('lsp'),
-
-  -- dependences and libs
-  -- "nvim-lua/plenary.nvim",
-  -- "MunifTanjim/nui.nvim",
-  -- "SmiteshP/nvim-navic",
   require('plugin.tools'),
   require('plugin.bufferline'),
   require('plugin.lualine'),
   require('plugin.nvim-tree'),
-
-  -- others
 })

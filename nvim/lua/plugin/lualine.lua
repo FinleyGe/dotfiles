@@ -39,12 +39,16 @@ return {
           lualine_y = {},
           lualine_z = {}
         },
-        tabline = {},
-        winbar = {
-          --   require('lspsaga.symbol.winbar').get_bar(),
+        tabline = {
         },
+        winbar = {},
         inactive_winbar = {},
-        extensions = {}
+        extensions = {
+          'lazy',
+          'quickfix',
+          'trouble',
+          'nvim-tree',
+        }
       }
     end
   }
