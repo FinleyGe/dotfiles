@@ -28,5 +28,9 @@ return {
     dependencies = {
       "nvimdev/guard-collection",
     },
+  },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
   }
 }
