@@ -1,5 +1,9 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.offsetEncoding = { "utf-8", "utf-16" }
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true
+}
 local opts = {
   capabilities = capabilities,
 }

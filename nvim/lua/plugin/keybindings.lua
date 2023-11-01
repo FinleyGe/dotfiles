@@ -7,10 +7,21 @@ local opt = { noremap = true, silent = true }
 nmap('<F3>', ':NvimTreeToggle<CR>', opt)
 nmap('<F4>', ':Lspsaga outline<CR>', opt)
 
-nmap('<M-h>', ':TmuxNavigateLeft<CR>', opt)
-nmap('<M-j>', ':TmuxNavigateUp<CR>', opt)
-nmap('<M-k>', ':TmuxNavigateDown<CR>', opt)
-nmap('<M-l>', ':TmuxNavigateRight<CR>', opt)
+-- nmap('<M-h>', ':TmuxNavigateLeft<CR>', opt)
+-- nmap('<M-j>', ':TmuxNavigateUp<CR>', opt)
+-- nmap('<M-k>', ':TmuxNavigateDown<CR>', opt)
+-- nmap('<M-l>', ':TmuxNavigateRight<CR>', opt)
+-- nmap('<M-h>', ':ZellijNavigateLeft<CR>', opt)
+-- nmap('<M-j>', ':ZellijNavigateDown<CR>', opt)
+-- nmap('<M-k>', ':ZellijNavigateUp<CR>', opt)
+-- nmap('<M-l>', ':ZellijNavigateRight<CR>', opt)
+
+nmap('<M-h>', '<cmd>NavigatorLeft<CR>', opt)
+nmap('<M-j>', '<cmd>NavigatorDown<CR>', opt)
+nmap('<M-k>', '<cmd>NavigatorUp<CR>', opt)
+nmap('<M-l>', '<cmd>NavigatorRight<CR>', opt)
+
+
 map("n", "<Leader>q", ":Bdelete!<CR>", opt)
 nmap('<tab>', ':BufferLineCycleNext<CR>', opt)
 nmap('<s-tab>', ':BufferLineCyclePrev<CR>', opt)
@@ -35,6 +46,7 @@ map("n", ";g", ":Telescope live_grep<CR>", opt)
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
+
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 map("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", opt)
 map("n", "<Leader>ca", "<cmd>Lspsaga code_action<CR>", opt)

@@ -48,6 +48,25 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
   },
+  -- {
+  --   "Lilja/zellij.nvim",
+  --   event = "VeryLazy",
+  -- },
+  {
+    "numToStr/Navigator.nvim",
+    event = "VeryLazy",
+    config = function()
+      require('Navigator').setup()
+    end
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    event = "BufRead",
+    config = function()
+      require('ufo').setup()
+    end
+  },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
