@@ -8,6 +8,8 @@ ft('vue'):fmt({
 })
     :fmt('lsp')
 
+ft('python'):fmt('lsp')
+
 -- Call setup() LAST!
 require('guard').setup({
   -- the only options for the setup function

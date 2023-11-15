@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require('plugin.beautify'),
+  require('plugin.treesitter'),
   require('plugin.snippets'),
   require('plugin.nvim-cmp'),
   require('lsp'),

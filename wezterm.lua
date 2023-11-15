@@ -40,7 +40,7 @@ end
 config.initial_cols = 150
 config.initial_rows = 40
 
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.9
 config.window_background_image_hsb = {
   brightness = 0.8,
   hue = 1.0,
@@ -68,8 +68,8 @@ config.font_rules = {
 config.font_size = 14
 config.leader = { key = 'x', mods = 'CTRL' }
 config.keys = {
-  { key = 'v', mods = 'ALT',          action = act.SplitHorizontal },
-  { key = 's', mods = 'ALT',          action = act.SplitVertical },
+  { key = 's', mods = 'ALT',          action = act.SplitHorizontal },
+  { key = 'v', mods = 'ALT',          action = act.SplitVertical },
   { key = 'h', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-left') },
   { key = 'j', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-down') },
   { key = 'k', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-up') },

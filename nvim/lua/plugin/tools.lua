@@ -19,7 +19,11 @@ return {
   {
     "numToStr/Comment.nvim",
     event = "BufRead",
-    opts = {},
+    config = function()
+      require('Comment').setup({
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
+    end
   },
   {
     "windwp/nvim-autopairs",
@@ -82,5 +86,9 @@ return {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
+  },
+  {
+    'gsuuon/tshjkl.nvim',
+    config = true
   }
 }
