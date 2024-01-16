@@ -12,9 +12,17 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" }, { "debugloop/telescope-undo.nvim" } },
     cmd = "Telescope",
-    opts = {},
+    config = function()
+      require('telescope').setup({
+        extensions = {
+          undo = {
+          }
+        },
+      })
+      require('telescope').load_extension('undo')
+    end
   },
   {
     "numToStr/Comment.nvim",
@@ -90,5 +98,15 @@ return {
   {
     'gsuuon/tshjkl.nvim',
     config = true
+  },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        -- config
+      }
+    end,
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   }
 }

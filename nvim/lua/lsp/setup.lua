@@ -36,6 +36,8 @@ local lsp = {
   'svls',
   'rust_analyzer',
   'eslint',
+  'asm_lsp',
+  'tailwindcss',
 };
 
 require("mason-lspconfig").setup {

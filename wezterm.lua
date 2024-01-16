@@ -1,6 +1,11 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = {}
+
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
 local function isViProcess(pane)
   -- get_foreground_process_name On Linux, macOS and Windows,
   -- the process can be queried to determine this path. Other operating systems
@@ -20,6 +25,7 @@ local function conditionalActivatePane(window, pane, pane_direction, vim_directi
     window:perform_action(act.ActivatePaneDirection(pane_direction), pane)
   end
 end
+
 wezterm.on('ActivatePaneDirection-right', function(window, pane)
   conditionalActivatePane(window, pane, 'Right', 'l')
 end)
@@ -33,20 +39,57 @@ wezterm.on('ActivatePaneDirection-down', function(window, pane)
   conditionalActivatePane(window, pane, 'Down', 'j')
 end)
 
-if wezterm.config_builder then
-  config = wezterm.config_builder()
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
 end
 
-config.initial_cols = 150
-config.initial_rows = 40
+local function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    -- return 'Google (dark) (terminal.sexy)'
+    return 'Gruvbox Dark (Gogh)'
+  else
+    -- return 'Google (light) (terminal.sexy)'
+    return 'Gruvbox (Gogh)'
+  end
+end
 
-config.window_background_opacity = 0.9
-config.window_background_image_hsb = {
-  brightness = 0.8,
-  hue = 1.0,
-  saturation = 1.0
-}
+local function background_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return {
+      orientation = 'Vertical',
+      colors = {
+        '#0f0c29',
+        '#302b63',
+        '#24243e',
+      },
+      interpolation = 'Linear',
+      blend = 'Rgb',
+      noise = 1000,
+    }
+  else
+    return {
+      orientation = 'Vertical',
+      colors = {
+        '#FBF0C9',
+        '#F6DAAB',
+        '#F0CFAF',
+      },
+      noise = 1000,
+    }
+  end
+end
 
+local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
+local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+
+config.color_scheme = scheme_for_appearance(get_appearance())
+config.window_background_gradient = background_for_appearance(get_appearance())
+config.initial_cols = 80
+config.initial_rows = 30
+config.window_decorations = 'RESIZE'
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',
   -- 'Victor Mono',
@@ -65,7 +108,7 @@ config.font_rules = {
   }
 }
 
-config.font_size = 14
+config.font_size = 13
 config.leader = { key = 'x', mods = 'CTRL' }
 config.keys = {
   { key = 's', mods = 'ALT',          action = act.SplitHorizontal },

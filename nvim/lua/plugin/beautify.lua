@@ -1,11 +1,28 @@
 return {
+  -- {
+  --   "tanvirtin/monokai.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- vim.cmd [[colorscheme monokai_pro]]
+  --   end
+  -- },
   {
-    "tanvirtin/monokai.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd [[colorscheme monokai_pro]]
-    end
+    "f-person/auto-dark-mode.nvim",
+    config = {
+      update_interval = 1000,
+      set_dark_mode = function()
+        vim.api.nvim_set_option("background", "dark")
+        vim.cmd("colorscheme gruvbox")
+      end,
+      set_light_mode = function()
+        vim.api.nvim_set_option("background", "light")
+        vim.cmd("colorscheme gruvbox")
+      end,
+    },
+    dependencies = {
+      "ellisonleao/gruvbox.nvim"
+    }
   },
   {
     "kyazdani42/nvim-web-devicons",

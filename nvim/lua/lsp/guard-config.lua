@@ -1,14 +1,14 @@
 local ft = require('guard.filetype')
 
-ft('vue'):fmt({
-  fn = function()
-    -- vim.lsp.buf.format({ bufnr = bufnr, range = range, async = true })
-    vim.cmd([[ EslintFixAll ]])
-  end,
-})
-    :fmt('lsp')
+ft('vue,typescript,javascript')
+    :fmt({
+      fn = function()
+        vim.cmd([[ EslintFixAll ]])
+      end,
+    })
+    :append('lsp')
 
-ft('python'):fmt('lsp')
+ft('go'):fmt('lsp')
 
 -- Call setup() LAST!
 require('guard').setup({
