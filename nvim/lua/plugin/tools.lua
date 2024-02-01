@@ -8,7 +8,8 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -108,5 +109,26 @@ return {
       }
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      -- "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      lang = "cpp",
+      -- configuration goes here
+      cn = {
+        enabled = true,
+      }
+    },
   }
 }

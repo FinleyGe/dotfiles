@@ -10,6 +10,8 @@ ft('vue,typescript,javascript')
 
 ft('go'):fmt('lsp')
 
+ft('c'):fmt('clang-format')
+
 -- Call setup() LAST!
 require('guard').setup({
   -- the only options for the setup function

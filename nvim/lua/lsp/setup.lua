@@ -38,6 +38,7 @@ local lsp = {
   'eslint',
   'asm_lsp',
   'tailwindcss',
+  'ltex',
 };
 
 require("mason-lspconfig").setup {

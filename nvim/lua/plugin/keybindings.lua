@@ -4,8 +4,8 @@ local nmap = function(lhs, rhs, opts)
 end
 local opt = { noremap = true, silent = true }
 -- nvim-tree
-nmap('<F3>', ':NvimTreeToggle<CR>', opt)
-nmap('<F4>', ':Lspsaga outline<CR>', opt)
+nmap('<Leader>e', ':NvimTreeToggle<CR>', opt)
+nmap('<Leader>o', ':Lspsaga outline<CR>', opt)
 
 -- nmap('<M-h>', ':TmuxNavigateLeft<CR>', opt)
 -- nmap('<M-j>', ':TmuxNavigateUp<CR>', opt)

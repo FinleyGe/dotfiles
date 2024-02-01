@@ -61,23 +61,23 @@ local function background_for_appearance(appearance)
     return {
       orientation = 'Vertical',
       colors = {
-        '#0f0c29',
-        '#302b63',
-        '#24243e',
+        '#0b0f29',
+        '#1D2347',
+        '#292f57',
+        -- '#fff',
       },
-      interpolation = 'Linear',
-      blend = 'Rgb',
+      -- interpolation = 'Linear',
+      -- blend = 'Rgb',
       noise = 1000,
     }
   else
     return {
       orientation = 'Vertical',
       colors = {
-        '#FBF0C9',
-        '#F6DAAB',
-        '#F0CFAF',
+        '#dce0e8',
+        '#EFF1F5',
       },
-      noise = 1000,
+      noise = 300,
     }
   end
 end
