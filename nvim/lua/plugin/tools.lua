@@ -13,16 +13,16 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" }, { "debugloop/telescope-undo.nvim" } },
+    dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" }, { "debugloop/telescope-undo.nvim" }, { "piersolenski/telescope-import.nvim" } },
     cmd = "Telescope",
     config = function()
       require('telescope').setup({
         extensions = {
-          undo = {
-          }
+          undo = {},
         },
       })
       require('telescope').load_extension('undo')
+      require("telescope").load_extension("import")
     end
   },
   {
@@ -128,6 +128,13 @@ return {
       -- configuration goes here
       cn = {
         enabled = true,
+      },
+      logging = true,
+      injector = {
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "using namespace std;" },
+          after = "int main() {}",
+        },
       }
     },
   }

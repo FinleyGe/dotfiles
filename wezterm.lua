@@ -63,12 +63,8 @@ local function background_for_appearance(appearance)
       colors = {
         '#0b0f29',
         '#1D2347',
-        '#292f57',
-        -- '#fff',
       },
-      -- interpolation = 'Linear',
-      -- blend = 'Rgb',
-      noise = 1000,
+      noise = 64,
     }
   else
     return {
@@ -77,18 +73,43 @@ local function background_for_appearance(appearance)
         '#dce0e8',
         '#EFF1F5',
       },
-      noise = 300,
+      noise = 64,
     }
   end
 end
 
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+local function background_image_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return '/home/finley/.config/wezterm/images/dark.png'
+  else
+    return '/home/finley/.config/wezterm/images/light.png'
+  end
+end
+-- local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
+-- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
 config.color_scheme = scheme_for_appearance(get_appearance())
 config.window_background_gradient = background_for_appearance(get_appearance())
-config.initial_cols = 80
-config.initial_rows = 30
+-- config.window_background_image = '/home/finley/.config/wezterm/images/dark.png'
+-- config.background = background_for_appearance(get_appearance())
+-- config.background = {
+--   {
+--     source = {
+--       File = '/home/finley/.config/wezterm/images/dark.png'
+--     },
+--     repeat_x = 'Mirror',
+--     repeat_y = 'Mirror',
+--     repeat_x_size = 500,
+--     repeat_y_size = 500,
+--     attachment = {
+--       Parallax = 0.1
+--     }
+--   }
+-- }
+
+
+config.initial_cols = 120
+config.initial_rows = 40
 config.window_decorations = 'RESIZE'
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',

@@ -19,6 +19,8 @@ local ensure_list = {
   'comment',
   'tsx',
   'vue',
+  'markdown',
+  'markdown_inline'
 }
 
 return {
