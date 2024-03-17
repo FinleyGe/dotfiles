@@ -23,7 +23,7 @@ local lsp = {
   'lua_ls',
   'jdtls',
   'pyright',
-  'volar', -- NOTE: mantually config
+  'volar',
   'gopls',
   'clangd',
   'texlab',
@@ -39,22 +39,47 @@ local lsp = {
   'asm_lsp',
   'tailwindcss',
   'ltex',
+  "tsserver",
 };
 
 require("mason-lspconfig").setup {
   ensure_installed = lsp,
 }
 
-for _, v in ipairs(lsp) do
-  require('lspconfig')[v].setup { opts }
-end
+local lspconfig = require('lspconfig')
 
-require('lspconfig')['volar'].setup {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+local home = os.getenv("HOME")
+
+require("mason-lspconfig").setup_handlers({
+  function(server_name)
+    local server_config = {}
+    if require("neoconf").get(server_name .. ".disable") then
+      return
+    end
+    if server_name == "tsserver" then
+      server_config.init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = home .. "/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin",
+            languages = { "javascript", "typescript", "vue" },
+          }
+        },
+      }
+      server_config.filetypes = { 'vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' }
+    end
+    if server_name == "volar" then
+      server_config.init_options = {
+        typescript = {
+          tsdk = home .. '/.local/share/pnpm/global/5/node_modules/typescript/lib',
+        }
+      }
+      server_config.filetypes = { 'vue', 'typescript', 'javascript' }
+    end
+    lspconfig[server_name].setup(server_config)
+  end,
 }
-
--- require('lspsaga').setup()
--- require('lsp.guard-config')
+)
 
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()']])
 

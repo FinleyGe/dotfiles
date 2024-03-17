@@ -1,14 +1,55 @@
+local handler = function(virtText, lnum, endLnum, width, truncate)
+  local newVirtText = {}
+  local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+  local sufWidth = vim.fn.strdisplaywidth(suffix)
+  local targetWidth = width - sufWidth
+  local curWidth = 0
+  for _, chunk in ipairs(virtText) do
+    local chunkText = chunk[1]
+    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+    if targetWidth > curWidth + chunkWidth then
+      table.insert(newVirtText, chunk)
+    else
+      chunkText = truncate(chunkText, targetWidth - curWidth)
+      local hlGroup = chunk[2]
+      table.insert(newVirtText, { chunkText, hlGroup })
+      chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      -- str width returned from truncate() may less than 2nd argument, need padding
+      if curWidth + chunkWidth < targetWidth then
+        suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+      end
+      break
+    end
+    curWidth = curWidth + chunkWidth
+  end
+  table.insert(newVirtText, { suffix, 'MoreMsg' })
+  return newVirtText
+end
+
 return {
   {
     "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
+    cmd = "ColorizerToggle",
     opts = {},
   },
-
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
+      keywords = {
+        FIX = {
+          icon = " ", -- icon used for the sign, and in search results
+          color = "error", -- can be a hex color, or a named color (see below)
+          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+          -- signs = false, -- configure signs for some keywords individually
+        },
+        TODO = { icon = " ", color = "info" },
+        HACK = { icon = " ", color = "warning" },
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+        TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+      },
     },
   },
   {
@@ -44,7 +85,6 @@ return {
     event = "BufRead",
     opts = {},
   },
-
   {
     "moll/vim-bbye",
     cmd = "Bdelete",
@@ -61,10 +101,6 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
   },
-  -- {
-  --   "Lilja/zellij.nvim",
-  --   event = "VeryLazy",
-  -- },
   {
     "numToStr/Navigator.nvim",
     event = "VeryLazy",
@@ -77,12 +113,27 @@ return {
     dependencies = { "kevinhwang91/promise-async" },
     event = "BufRead",
     config = function()
-      require('ufo').setup()
+      vim.o.foldcolumn = "1"
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      vim.o.foldlevel = 99
+      require('ufo').setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return {
+            'treesitter',
+            'indent',
+          }
+        end,
+        fold_virt_text_handler = handler,
+      })
     end
   },
   {
     "folke/trouble.nvim",
-    event = "VeryLazy",
+    cmd = "TroubleToggle",
+    opts = {
+      position = "right",
+      width = 40,
+    }
   },
   {
     "nvim-lua/lsp-status.nvim",
@@ -91,6 +142,10 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
   },
   {
     "folke/zen-mode.nvim",
@@ -98,21 +153,26 @@ return {
   },
   {
     'gsuuon/tshjkl.nvim',
-    config = true
+    keys = "<leader>N",
+    opts = {
+      select_current_node = true,
+      keymaps = {
+        toggle = '<leader>N',
+      },
+    },
   },
   {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-      require('dashboard').setup {
-        -- config
-      }
+      require('dashboard').setup {}
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
   {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
+    cmd = "Leet",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim", -- required by telescope
@@ -137,5 +197,38 @@ return {
         },
       }
     },
+  },
+  {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        -- configuration goes here, for example:
+        relculright = true,
+        segments = {
+          {
+            sign = { namespace = { "gitsigns" }, maxwidth = 2, auto = true, wrap = true },
+            click = "v:lua.ScSa"
+          },
+          {
+            sign = { name = { ".*" }, maxwidth = 2, auto = true, wrap = true },
+            click = "v:lua.ScSa"
+          },
+          {
+            sign = { name = { "Diagnostic" }, maxwidth = 1, auto = true },
+            click = "v:lua.ScSa"
+          },
+          { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+          -- { text = { " ", builtin.lnumfunc, " " }, click = "v:lua.ScLa", },
+          {
+            text = {
+              function(arg)
+                return " " .. arg.lnum .. " " .. arg.relnum .. " "
+              end
+            },
+          },
+        }
+      })
+    end,
   }
 }

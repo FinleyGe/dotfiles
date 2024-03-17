@@ -37,8 +37,6 @@ vim.o.showmode = false
 vim.o.hidden = true
 vim.o.timeoutlen = 500
 vim.o.termguicolors = true
-vim.o.foldmethod = "indent"
-vim.o.foldlevel = 99
 vim.loader.enable()
 
 local notify = vim.notify

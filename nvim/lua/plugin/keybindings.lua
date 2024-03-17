@@ -6,15 +6,7 @@ local opt = { noremap = true, silent = true }
 -- nvim-tree
 nmap('<Leader>e', ':NvimTreeToggle<CR>', opt)
 nmap('<Leader>o', ':Lspsaga outline<CR>', opt)
-
--- nmap('<M-h>', ':TmuxNavigateLeft<CR>', opt)
--- nmap('<M-j>', ':TmuxNavigateUp<CR>', opt)
--- nmap('<M-k>', ':TmuxNavigateDown<CR>', opt)
--- nmap('<M-l>', ':TmuxNavigateRight<CR>', opt)
--- nmap('<M-h>', ':ZellijNavigateLeft<CR>', opt)
--- nmap('<M-j>', ':ZellijNavigateDown<CR>', opt)
--- nmap('<M-k>', ':ZellijNavigateUp<CR>', opt)
--- nmap('<M-l>', ':ZellijNavigateRight<CR>', opt)
+nmap("<Leader>t", ":TroubleToggle<CR>", opt)
 
 nmap('<M-h>', '<cmd>NavigatorLeft<CR>', opt)
 nmap('<M-j>', '<cmd>NavigatorDown<CR>', opt)
@@ -41,13 +33,18 @@ nmap('<Leader>bl', ':BufferLineSortByExtension<CR>', opt)
 -- telescope
 map("n", ";f", ":Telescope find_files<CR>", opt)
 map("n", ";g", ":Telescope live_grep<CR>", opt)
+map("n", ";b", ":Telescope buffers<CR>", opt)
+map("n", ";c", ":Telescope commands<CR>", opt)
+map("n", ";r", ":Telescope oldfiles<CR>", opt)
+map("n", ";s", ":Telescope lsp_document_symbols<CR>", opt)
+map("n", ";S", ":Telescope lsp_workspace_symbols<CR>", opt)
 
 -- copilot
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_tab_fallback = ""
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_tab_fallback = ""
 
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+-- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 map("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", opt)
 map("n", "<Leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
 map('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', opt)
@@ -59,5 +56,5 @@ map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "<Leader>gi", "<cmd>Lspsaga finder<CR>", opt)
 map("n", "<Leader>f", "<cmd>GuardFmt<CR>", opt)
--- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
--- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+-- map("i", "<C-,>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+nmap("<Leader>p", "<cmd>Lspsaga term_toggle<CR>", opt)

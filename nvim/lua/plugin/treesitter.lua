@@ -1,5 +1,6 @@
 local ensure_list = {
   'c',
+  'cpp',
   'lua',
   'query',
   'javascript',
@@ -30,19 +31,13 @@ return {
     event = { "VeryLazy" },
     config = function()
       local configs = require("nvim-treesitter.configs")
-
       configs.setup({
-        -- ensure_installed = { "c", "lua", "query", "javascript", "html" },
         ensure_installed = ensure_list,
-        sync_install = true, -- Sync install
+        sync_install = false, -- Sync install
         highlight = { enable = true },
         indent = { enable = true },
-        -- context_commentstring = {
-        --   enable = true,
-        -- },
       })
       vim.g.skip_ts_context_commentstring_module = true
-      -- require("ts-context-commentstring").setup()
     end,
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',

@@ -17,10 +17,11 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
-      select = true }),
+      select = true
+    }),
     ['<tab>'] = cmp.mapping.select_next_item(),
     ['<s-tab>'] = cmp.mapping.select_prev_item(),
-    ['<c-space>'] = cmp.mapping.complete(),
+    ['<c-,>'] = cmp.mapping.complete(),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },

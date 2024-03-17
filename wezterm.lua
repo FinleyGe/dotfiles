@@ -78,83 +78,110 @@ local function background_for_appearance(appearance)
   end
 end
 
-local function background_image_for_appearance(appearance)
-  if appearance:find 'Dark' then
-    return '/home/finley/.config/wezterm/images/dark.png'
-  else
-    return '/home/finley/.config/wezterm/images/light.png'
-  end
-end
--- local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
--- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
 config.color_scheme = scheme_for_appearance(get_appearance())
 config.window_background_gradient = background_for_appearance(get_appearance())
--- config.window_background_image = '/home/finley/.config/wezterm/images/dark.png'
--- config.background = background_for_appearance(get_appearance())
--- config.background = {
---   {
---     source = {
---       File = '/home/finley/.config/wezterm/images/dark.png'
---     },
---     repeat_x = 'Mirror',
---     repeat_y = 'Mirror',
---     repeat_x_size = 500,
---     repeat_y_size = 500,
---     attachment = {
---       Parallax = 0.1
---     }
---   }
--- }
-
-
 config.initial_cols = 120
 config.initial_rows = 40
 config.window_decorations = 'RESIZE'
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',
-  -- 'Victor Mono',
+  'Victor Mono',
   'LXGW Neo XiHei',
+  'LXGW WenKai',
 }
+
 config.warn_about_missing_glyphs = false
 
 config.font_rules = {
   {
+    italic = false,
+    font = wezterm.font_with_fallback {
+      {
+        family = 'FiraCode Nerd Font',
+        weight = 450,
+      },
+      {
+        family = 'Victor Mono',
+        weight = 'Regular',
+      },
+      {
+        family = 'LXGW Neo XiHei',
+        weight = 'Regular',
+      },
+      {
+        family = 'LXGW WenKai',
+        weight = 'Regular',
+      },
+      -- 'Victor Mono',
+      -- 'LXGW Neo Xihei',
+      -- 'LXGW WenKai',
+    },
+  },
+  {
     italic = true,
     font = wezterm.font_with_fallback {
-      'Victor Mono',
-      'LXGW WenKai Mono',
-      'FiraCode Nerd Font Mono',
+      {
+        family = 'Victor Mono',
+        weight = 'Medium',
+        italic = true,
+      }, {
+      family = 'LXGW WenKai',
+      weight = 'Bold',
+    }
     },
+  }, {
+  intensity = 'Bold',
+  font = wezterm.font_with_fallback {
+    {
+      family = 'FiraCode Nerd Font',
+      weight = 'Bold',
+    }, {
+    family = 'LXGW Neo XiHei',
+    weight = 'Bold',
   }
+  },
+}, {
+  intensity = 'Bold',
+  italic = true,
+  font = wezterm.font_with_fallback {
+    {
+      family = 'FiraCode Nerd Font',
+      weight = 'Bold',
+      italic = true,
+    },
+    'LXGW WenKai',
+  },
+},
 }
 
 config.font_size = 13
 config.leader = { key = 'x', mods = 'CTRL' }
 config.keys = {
-  { key = 's', mods = 'ALT',          action = act.SplitHorizontal },
-  { key = 'v', mods = 'ALT',          action = act.SplitVertical },
-  { key = 'h', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-left') },
-  { key = 'j', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-down') },
-  { key = 'k', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-up') },
-  { key = 'l', mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-right') },
-  { key = ':', mods = 'LEADER|SHIFT', action = act.ActivateCommandPalette },
-  { key = 'c', mods = 'LEADER',       action = act.SpawnTab 'CurrentPaneDomain' },
-  { key = ' ', mods = 'LEADER',       action = act.RotatePanes 'CounterClockwise' },
-  { key = 'x', mods = 'LEADER',       action = act.CloseCurrentPane { confirm = true } },
-  { key = '1', mods = 'LEADER',       action = act.ActivateTab(0) },
-  { key = '2', mods = 'LEADER',       action = act.ActivateTab(1) },
-  { key = '3', mods = 'LEADER',       action = act.ActivateTab(2) },
-  { key = '4', mods = 'LEADER',       action = act.ActivateTab(3) },
-  { key = '5', mods = 'LEADER',       action = act.ActivateTab(4) },
-  { key = '6', mods = 'LEADER',       action = act.ActivateTab(5) },
-  { key = '7', mods = 'LEADER',       action = act.ActivateTab(6) },
-  { key = '8', mods = 'LEADER',       action = act.ActivateTab(7) },
-  { key = '9', mods = 'LEADER',       action = act.ActivateTab(8) },
-  { key = '0', mods = 'LEADER',       action = act.ActivateTab(9) },
-  { key = 's', mods = 'LEADER',       action = act.ShowTabNavigator },
-  { key = 'm', mods = 'LEADER',       action = act.TogglePaneZoomState },
-  { key = 't', mods = 'LEADER',       action = act.ShowLauncher },
+  { key = 's',   mods = 'ALT',          action = act.SplitHorizontal },
+  { key = 'v',   mods = 'ALT',          action = act.SplitVertical },
+  { key = 'h',   mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-left') },
+  { key = 'j',   mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-down') },
+  { key = 'k',   mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-up') },
+  { key = 'l',   mods = 'ALT',          action = act.EmitEvent('ActivatePaneDirection-right') },
+  { key = ':',   mods = 'LEADER|SHIFT', action = act.ActivateCommandPalette },
+  { key = 'c',   mods = 'LEADER',       action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = ' ',   mods = 'LEADER',       action = act.RotatePanes 'CounterClockwise' },
+  { key = 'x',   mods = 'LEADER',       action = act.CloseCurrentPane { confirm = true } },
+  { key = '1',   mods = 'LEADER',       action = act.ActivateTab(0) },
+  { key = '2',   mods = 'LEADER',       action = act.ActivateTab(1) },
+  { key = '3',   mods = 'LEADER',       action = act.ActivateTab(2) },
+  { key = '4',   mods = 'LEADER',       action = act.ActivateTab(3) },
+  { key = '5',   mods = 'LEADER',       action = act.ActivateTab(4) },
+  { key = '6',   mods = 'LEADER',       action = act.ActivateTab(5) },
+  { key = '7',   mods = 'LEADER',       action = act.ActivateTab(6) },
+  { key = '8',   mods = 'LEADER',       action = act.ActivateTab(7) },
+  { key = '9',   mods = 'LEADER',       action = act.ActivateTab(8) },
+  { key = '0',   mods = 'LEADER',       action = act.ActivateTab(9) },
+  { key = 's',   mods = 'LEADER',       action = act.ShowTabNavigator },
+  { key = 'm',   mods = 'LEADER',       action = act.TogglePaneZoomState },
+  { key = 't',   mods = 'LEADER',       action = act.ShowLauncher },
+  { key = 'Tab', mods = 'LEADER',       action = act.ActivateTabRelative(1) },
+  { key = 'Tab', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
 }
 
 return config
