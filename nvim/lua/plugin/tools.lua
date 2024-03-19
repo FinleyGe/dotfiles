@@ -207,19 +207,18 @@ return {
         relculright = true,
         segments = {
           {
-            sign = { namespace = { "gitsigns" }, maxwidth = 2, auto = true, wrap = true },
+            sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = false, wrap = true },
             click = "v:lua.ScSa"
           },
           {
-            sign = { name = { ".*" }, maxwidth = 2, auto = true, wrap = true },
+            sign = { name = { ".*" }, maxwidth = 1, auto = false, wrap = true },
             click = "v:lua.ScSa"
           },
           {
-            sign = { name = { "Diagnostic" }, maxwidth = 1, auto = true },
+            sign = { name = { "Diagnostic" }, colwidth = 1, auto = false },
             click = "v:lua.ScSa"
           },
           { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
-          -- { text = { " ", builtin.lnumfunc, " " }, click = "v:lua.ScLa", },
           {
             text = {
               function(arg)

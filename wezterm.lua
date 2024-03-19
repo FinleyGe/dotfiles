@@ -48,10 +48,8 @@ end
 
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    -- return 'Google (dark) (terminal.sexy)'
     return 'Gruvbox Dark (Gogh)'
   else
-    -- return 'Google (light) (terminal.sexy)'
     return 'Gruvbox (Gogh)'
   end
 end
@@ -78,8 +76,24 @@ local function background_for_appearance(appearance)
   end
 end
 
+function get_image_by_appearance(appearance)
+  if appearance:find 'Dark' then
+    return '/home/finley/.config/wezterm/images/dark.png'
+  else
+    return '/home/finley/.config/wezterm/images/light.png'
+  end
+end
+
+config.background = {
+  {
+    source = {
+      File = get_image_by_appearance(get_appearance())
+    },
+  }
+}
+
 config.color_scheme = scheme_for_appearance(get_appearance())
-config.window_background_gradient = background_for_appearance(get_appearance())
+-- config.window_background_gradient = background_for_appearance(get_appearance())
 config.initial_cols = 120
 config.initial_rows = 40
 config.window_decorations = 'RESIZE'
@@ -183,5 +197,6 @@ config.keys = {
   { key = 'Tab', mods = 'LEADER',       action = act.ActivateTabRelative(1) },
   { key = 'Tab', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
 }
+
 
 return config
