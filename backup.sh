@@ -17,4 +17,4 @@ echo dotfiles copied
 
 git add .
 git commit -a -m `date --iso-8601=seconds $cumtom_commit_message`
-git push -all
+git push --all
