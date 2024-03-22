@@ -96,7 +96,7 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 -- config.window_background_gradient = background_for_appearance(get_appearance())
 config.initial_cols = 120
 config.initial_rows = 40
-config.window_decorations = 'RESIZE'
+
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',
   'Victor Mono',
@@ -198,5 +198,17 @@ config.keys = {
   { key = 'Tab', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
 }
 
+config.integrated_title_buttons = {
+  'Hide', 'Maximize', 'Close'
+}
 
+config.window_decorations = 'RESIZE|INTEGRATED_BUTTONS'
+
+config.unix_domains = {
+  {
+    name = 'unix',
+  }
+}
+
+config.default_gui_startup_args = { 'connect', 'unix' }
 return config
