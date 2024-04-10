@@ -51,5 +51,13 @@ return {
   {
     'VidocqH/lsp-lens.nvim',
     event = "BufRead",
-  }
+  },
+  {
+    "zeioth/garbage-day.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    opts = {
+      -- your options here
+    }
+  },
 }

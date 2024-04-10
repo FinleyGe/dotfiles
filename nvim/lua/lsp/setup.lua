@@ -40,6 +40,8 @@ local lsp = {
   'tailwindcss',
   'ltex',
   "tsserver",
+  "dockerls",
+  "docker_compose_language_service",
 };
 
 require("mason-lspconfig").setup {
@@ -75,6 +77,9 @@ require("mason-lspconfig").setup_handlers({
         }
       }
       server_config.filetypes = { 'vue', 'typescript', 'javascript' }
+    end
+    if server_name == "clangd" then
+      server_config.filetypes = { 'c', 'cpp' }
     end
     lspconfig[server_name].setup(server_config)
   end,

@@ -229,5 +229,27 @@ return {
         }
       })
     end,
-  }
+  }, {
+
+  "lalitmee/browse.nvim",
+  dependencies = { "nvim-telescope/telescope.nvim" },
+  keys = {
+    {
+      mode = { "n", "x" },
+      "<leader>S",
+      function() require("browse").open_bookmarks() end,
+    },
+    {
+      mode = { "n", "x" },
+      "<leader>B",
+      function() require("browse").browse() end,
+    } },
+
+  opts = {
+    bookmarks = {
+      ["github_code_search"] = "https://github.com/search?q=%s&type=code",
+      ["github_repo_search"] = "https://github.com/search?q=%s&type=repositories",
+    },
+  },
+}
 }

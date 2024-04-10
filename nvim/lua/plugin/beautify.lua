@@ -15,6 +15,7 @@ return {
     dependencies = {
       "ellisonleao/gruvbox.nvim",
       "catppuccin/nvim",
+      "Verf/deepwhite.nvim",
     },
     lazy = false,
   },

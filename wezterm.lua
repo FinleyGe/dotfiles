@@ -48,9 +48,9 @@ end
 
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Gruvbox Dark (Gogh)'
+    return 'Catppuccin Macciatto'
   else
-    return 'Gruvbox (Gogh)'
+    return 'Catppuccin Latte'
   end
 end
 
@@ -76,11 +76,16 @@ local function background_for_appearance(appearance)
   end
 end
 
+
+local home = os.getenv('HOME')
+
 function get_image_by_appearance(appearance)
   if appearance:find 'Dark' then
-    return '/home/finley/.config/wezterm/images/dark.png'
+    -- return '/home/finley/.config/wezterm/images/dark.png'
+    return home .. '/.config/wezterm/images/dark.png'
   else
-    return '/home/finley/.config/wezterm/images/light.png'
+    -- return '/home/finley/.config/wezterm/images/light.png'
+    return home .. '/.config/wezterm/images/light.png'
   end
 end
 
@@ -204,11 +209,11 @@ config.integrated_title_buttons = {
 
 config.window_decorations = 'RESIZE|INTEGRATED_BUTTONS'
 
-config.unix_domains = {
-  {
-    name = 'unix',
-  }
-}
-
-config.default_gui_startup_args = { 'connect', 'unix' }
+-- config.unix_domains = {
+--   {
+--     name = 'unix',
+--   }
+-- }
+--
+-- config.default_gui_startup_args = { 'connect', 'unix' }
 return config
