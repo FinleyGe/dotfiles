@@ -360,12 +360,13 @@ config.tab_bar_style = {
 }
 
 wezterm.on('update-right-status', function(window, pane)
-  local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
+  local date = wezterm.strftime '%H:%M:%S'
   -- local active_tab_name = window:active_tab():get_title()
   window:set_right_status(wezterm.format {
     { Attribute = { Intensity = "Half" } },
     { Background = { Color = get_color_by_window_id(window:window_id()) } },
     { Attribute = { Italic = true } },
+    { Text = " " .. window:mux_window():get_title() },
     { Text = " " .. date .. " " },
   })
 end)
