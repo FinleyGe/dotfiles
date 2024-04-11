@@ -13,7 +13,7 @@ cp ~/.config/fish $backup -r
 cp ~/.gitconfig $backup
 cp ~/.config/starship.toml $backup
 cp ~/.fonts $backup -r
-pacman -Qqen > $backup/pkglist.txt
+# pacman -Qqen > $backup/pkglist.txt
 
 echo dotfiles copied
 

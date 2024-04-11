@@ -236,12 +236,12 @@ return {
   keys = {
     {
       mode = { "n", "x" },
-      "<leader>S",
+      "<leader>s",
       function() require("browse").open_bookmarks() end,
     },
     {
       mode = { "n", "x" },
-      "<leader>B",
+      "<leader>b",
       function() require("browse").browse() end,
     } },
 
