@@ -16,14 +16,14 @@ end
 local opt = { noremap = true, silent = true }
 
 -- move
-nmap('<S-h>', '8h', opt)
-nmap('<S-j>', '4j', opt)
-nmap('<S-k>', '4k', opt)
-nmap('<S-l>', '8l', opt)
-vmap('<S-h>', '8h', opt)
-vmap('<S-j>', '4j', opt)
-vmap('<S-k>', '4k', opt)
-vmap('<S-l>', '8l', opt)
+-- nmap('<S-h>', '8h', opt)
+-- nmap('<S-j>', '4j', opt)
+-- nmap('<S-k>', '4k', opt)
+-- nmap('<S-l>', '8l', opt)
+-- vmap('<S-h>', '8h', opt)
+-- vmap('<S-j>', '4j', opt)
+-- vmap('<S-k>', '4k', opt)
+-- vmap('<S-l>', '8l', opt)
 
 --copy to system clipboard
 map('v', '<Leader>y', '"+y', opt)

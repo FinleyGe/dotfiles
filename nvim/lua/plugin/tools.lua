@@ -251,5 +251,15 @@ return {
       ["github_repo_search"] = "https://github.com/search?q=%s&type=repositories",
     },
   },
-}
+},
+  { 'akinsho/git-conflict.nvim', version = "*", config = true },
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
+  }
 }

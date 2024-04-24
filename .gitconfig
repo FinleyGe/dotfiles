@@ -1,9 +1,5 @@
 [user]
 	email = m13203533462@163.com
-	name = Finley Ge
+	name = FinleyGe
 [core]
 	editor = nvim
-[init]
-	defaultBranch = main
-[safe]
-	directory = *

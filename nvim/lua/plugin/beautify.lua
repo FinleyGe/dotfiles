@@ -174,8 +174,4 @@ return {
       vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
     end
   },
-  {
-    'mcauley-penney/visual-whitespace.nvim',
-    config = true
-  }
 }

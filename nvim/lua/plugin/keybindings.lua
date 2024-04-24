@@ -4,7 +4,9 @@ local nmap = function(lhs, rhs, opts)
 end
 local opt = { noremap = true, silent = true }
 -- nvim-tree
-nmap('<Leader>e', ':NvimTreeToggle<CR>', opt)
+-- nmap('<Leader>e', ':NvimTreeToggle<CR>', opt)
+nmap('<Leader>e', ':Neotree toggle<CR>', opt)
+nmap('<Leader>r', ':Neotree current<CR>', opt)
 nmap('<Leader>o', ':Lspsaga outline<CR>', opt)
 nmap("<Leader>t", ":TroubleToggle<CR>", opt)
 
