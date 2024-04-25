@@ -21,7 +21,8 @@ local ensure_list = {
   'tsx',
   'vue',
   'markdown',
-  'markdown_inline'
+  'markdown_inline',
+  'prisma',
 }
 
 return {

@@ -42,6 +42,7 @@ local lsp = {
   "tsserver",
   "dockerls",
   "docker_compose_language_service",
+  "prismals",
 };
 
 require("mason-lspconfig").setup {
