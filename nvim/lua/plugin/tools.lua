@@ -37,6 +37,13 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keywords = {
+        -- FIX: fix
+        -- TODO: something
+        -- HACK: something
+        -- WARN: something
+        -- PERF: something
+        -- NOTE: something
+        -- TEST: something
         FIX = {
           icon = " ", -- icon used for the sign, and in search results
           color = "error", -- can be a hex color, or a named color (see below)
@@ -50,11 +57,24 @@ return {
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       },
+      colors = {
+        -- info = { "todo" },
+        -- warning = { "warning" },
+        -- error = { "error" }
+      }
     },
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" }, { "debugloop/telescope-undo.nvim" }, { "piersolenski/telescope-import.nvim" } },
+    dependencies = {
+      { "nvim-lua/popup.nvim" },
+      { "nvim-lua/plenary.nvim" },
+      { "debugloop/telescope-undo.nvim" },
+      { "piersolenski/telescope-import.nvim" },
+      { "Snikimonkd/telescope-git-conflicts.nvim" },
+      -- { "ghassan0/elescope-glyph.nvim" },
+
+    },
     cmd = "Telescope",
     config = function()
       require('telescope').setup({
@@ -64,6 +84,8 @@ return {
       })
       require('telescope').load_extension('undo')
       require("telescope").load_extension("import")
+      require("telescope").load_extension("workspaces")
+      require("telescope").load_extension("conflicts")
     end
   },
   {
@@ -254,12 +276,24 @@ return {
 },
   { 'akinsho/git-conflict.nvim', version = "*", config = true },
   {
-    "ibhagwan/fzf-lua",
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    "natecraddock/workspaces.nvim",
     config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
+      require("workspaces").setup({
+        path = vim.fn.stdpath("data") .. "/workspaces",
+        cd_type = "global",
+        sort = true,
+        mru_sort = true,
+        auto_open = false,
+        notify_info = true,
+
+        hooks = {
+          add = {},
+          remove = {},
+          rename = {},
+          open_pre = {},
+          open = {},
+        },
+      })
     end
   }
 }

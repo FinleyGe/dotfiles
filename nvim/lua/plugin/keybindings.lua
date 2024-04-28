@@ -33,13 +33,16 @@ nmap('<Leader>bd', ':BufferLineSortByDirectory<CR>', opt)
 nmap('<Leader>bl', ':BufferLineSortByExtension<CR>', opt)
 
 -- telescope
-map("n", ";f", ":Telescope find_files<CR>", opt)
-map("n", ";g", ":Telescope live_grep<CR>", opt)
-map("n", ";b", ":Telescope buffers<CR>", opt)
-map("n", ";c", ":Telescope commands<CR>", opt)
-map("n", ";r", ":Telescope oldfiles<CR>", opt)
-map("n", ";s", ":Telescope lsp_document_symbols<CR>", opt)
-map("n", ";S", ":Telescope lsp_workspace_symbols<CR>", opt)
+nmap(';f', ':Telescope find_files<CR>', opt)
+nmap(';g', ':Telescope live_grep<CR>', opt)
+nmap(';b', ':Telescope buffers<CR>', opt)
+nmap(';c', ':Telescope commands<CR>', opt)
+nmap(';r', ':Telescope oldfiles<CR>', opt)
+nmap(';s', ':Telescope lsp_document_symbols<CR>', opt)
+nmap(';S', ':Telescope lsp_workspace_symbols<CR>', opt)
+nmap(';w', ':Telescope workspaces<CR>', opt)
+nmap(';t', ':TodoTelescope<CR>', opt)
+
 
 -- copilot
 -- vim.g.copilot_no_tab_map = true
