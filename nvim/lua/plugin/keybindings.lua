@@ -36,12 +36,13 @@ nmap('<Leader>bl', ':BufferLineSortByExtension<CR>', opt)
 nmap(';f', ':Telescope find_files<CR>', opt)
 nmap(';g', ':Telescope live_grep<CR>', opt)
 nmap(';b', ':Telescope buffers<CR>', opt)
-nmap(';c', ':Telescope commands<CR>', opt)
+nmap(';c', ':Telescope conflicts<CR>', opt)
 nmap(';r', ':Telescope oldfiles<CR>', opt)
 nmap(';s', ':Telescope lsp_document_symbols<CR>', opt)
 nmap(';S', ':Telescope lsp_workspace_symbols<CR>', opt)
 nmap(';w', ':Telescope workspaces<CR>', opt)
 nmap(';t', ':TodoTelescope<CR>', opt)
+nmap(';m', ':Telescope keymaps<CR>', opt)
 
 
 -- copilot
@@ -62,9 +63,30 @@ map("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "<Leader>gi", "<cmd>Lspsaga finder<CR>", opt)
-map("n", "<Leader>f", "<cmd>GuardFmt<CR>", opt)
+-- map("n", "<Leader>f", "<cmd>GuardFmt<CR>", opt)
 -- map("i", "<C-,>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
 nmap("<Leader>p", "<cmd>Lspsaga term_toggle<CR>", opt)
 
 nmap("<Leader>f", ":Format<CR>", opt)
 vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
+
+nmap("fs", ":Gitsigns stage_hunk<CR>", opt)
+nmap("fr", ":Gitsigns reset_hunk<CR>", opt)
+nmap("fu", ":Gitsigns undo_stage_hunk<CR>", opt)
+
+nmap("fS", ":Gitsigns stage_buffer<CR>", opt)
+nmap("fR", ":Gitsigns reset_buffer<CR>", opt)
+nmap("fU", ":Gitsigns reset_buffer_index<CR>", opt)
+
+nmap("fg", ":Git<CR>", opt)
+nmap("fC", ":Git commit<CR>", opt)
+
+nmap("fj", ":Gitsigns next_hunk<CR>", opt)
+nmap("fk", ":Gitsigns prev_hunk<CR>", opt)
+nmap("fp", ":Gitsigns preview_hunk<CR>", opt)
+
+nmap("fcn", ":GitConflictNextConflict<CR>", opt)
+nmap("fcp", ":GitConflictPrevConflict<CR>", opt)
+nmap("fco", ":GitConflictChooseOurs<CR>", opt)
+nmap("fct", ":GitConflictChooseTheirs<CR>", opt)
+nmap("fcc", ":GitConflictRefresh<CR>",opt)

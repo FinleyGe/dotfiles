@@ -39,6 +39,11 @@ return {
         indent = { enable = true },
       })
       vim.g.skip_ts_context_commentstring_module = true
+      -- local ft_to_parser = require("nvim-treesitter.language.register").filetype_to_parsername
+      -- ft_to_parser.mdx = "markdown"
+      vim.treesitter.language.register(
+        "mdx", "mardown"
+      )
     end,
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',

@@ -34,16 +34,16 @@ return {
       'nvim-treesitter/nvim-treesitter'
     }
   },
-  {
-    "nvimdev/guard.nvim",
-    cmd = "GuardFmt",
-    init = function()
-      require("lsp.guard-config")
-    end,
-    dependencies = {
-      "nvimdev/guard-collection",
-    },
-  },
+  -- {
+  --   "nvimdev/guard.nvim",
+  --   cmd = "GuardFmt",
+  --   init = function()
+  --     require("lsp.guard-config")
+  --   end,
+  --   dependencies = {
+  --     "nvimdev/guard-collection",
+  --   },
+  -- },
   {
     'kaarmu/typst.vim',
     ft = 'typst',

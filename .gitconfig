@@ -3,3 +3,5 @@
 	name = FinleyGe
 [core]
 	editor = nvim
+[init]
+	defaultbranch = main

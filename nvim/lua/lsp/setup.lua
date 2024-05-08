@@ -1,3 +1,9 @@
+vim.filetype.add({
+  extension = {
+    mdx = "markdown.mdx"
+  }
+}
+)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.offsetEncoding = { "utf-8", "utf-16" }
 capabilities.textDocument.foldingRange = {
@@ -43,6 +49,7 @@ local lsp = {
   "dockerls",
   "docker_compose_language_service",
   "prismals",
+  "mdx_analyzer",
 };
 
 require("mason-lspconfig").setup {
