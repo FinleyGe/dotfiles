@@ -34,16 +34,6 @@ return {
       'nvim-treesitter/nvim-treesitter'
     }
   },
-  -- {
-  --   "nvimdev/guard.nvim",
-  --   cmd = "GuardFmt",
-  --   init = function()
-  --     require("lsp.guard-config")
-  --   end,
-  --   dependencies = {
-  --     "nvimdev/guard-collection",
-  --   },
-  -- },
   {
     'kaarmu/typst.vim',
     ft = 'typst',
@@ -58,6 +48,35 @@ return {
     event = "VeryLazy",
     opts = {
       -- your options here
+    }
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = "BufRead",
+    config = function()
+      local null_ls = require("null-ls")
+      local cspell_config = {
+        config_file_preferred_name = 'cspell.json',
+
+        find_json = function()
+          local home = os.getenv("HOME")
+          return home .. '/.cache/cspell/cspell.json'
+        end,
+      }
+      require("null-ls").setup({
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.completion.spell,
+          null_ls.builtins.diagnostics.codespell,
+          -- null_ls.builtins.formatting.codespell
+          require('cspell').diagnostics.with({config = cspell_config}),
+          require('cspell').code_actions.with({config = cspell_config}),
+        }
+      })
+    end,
+    dependencies = {
+      'davidmh/cspell.nvim'
     }
   },
 }

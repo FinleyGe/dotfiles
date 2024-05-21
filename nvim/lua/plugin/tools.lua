@@ -136,6 +136,7 @@ return {
       vim.o.foldcolumn = "1"
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
       vim.o.foldlevel = 99
+
       require('ufo').setup({
         provider_selector = function(bufnr, filetype, buftype)
           return {
