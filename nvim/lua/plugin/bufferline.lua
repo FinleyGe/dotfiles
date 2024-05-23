@@ -38,13 +38,12 @@ return {
               text = "File Explorer",
               highlight = "Directory",
               text_align = "center"
-            },
-            {
-              filetype = "sagaoutline",
-              text = "Outline",
-              highlight = "Directory",
-              text_align = "center"
-            }
+            }, {
+            filetype = "sagaoutline",
+            text = "Outline",
+            highlight = "Directory",
+            text_align = "center"
+          }
           },
         }
       }

@@ -5,6 +5,7 @@ end
 local opt = { noremap = true, silent = true }
 -- nvim-tree
 -- nmap('<Leader>e', ':NvimTreeToggle<CR>', opt)
+-- cspell:disable
 nmap('<Leader>e', ':Neotree toggle<CR>', opt)
 nmap('<Leader>r', ':Neotree current<CR>', opt)
 nmap('<Leader>o', ':Lspsaga outline<CR>', opt)
@@ -44,20 +45,11 @@ nmap(';w', ':Telescope workspaces<CR>', opt)
 nmap(';t', ':TodoTelescope<CR>', opt)
 nmap(';m', ':Telescope keymaps<CR>', opt)
 
-
--- copilot
--- vim.g.copilot_no_tab_map = true
--- vim.g.copilot_assume_mapped = true
--- vim.g.copilot_tab_fallback = ""
-
--- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 map("n", "<Leader>rn", "<cmd>Lspsaga rename<CR>", opt)
 map("n", "<Leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
 map('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', opt)
 map('n', 'gD', '<cmd>Lspsaga peek_definition<CR>', opt)
-map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opt)
--- map("n", "gh", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opt)
--- map("n", "gh", require('pretty_hover').hover, opt)
+map("n", "gh", "<cmd>lua require('pretty_hover').hover()<CR>", opt)
 -- map("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
 map("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
 map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
@@ -89,4 +81,4 @@ nmap("fcn", ":GitConflictNextConflict<CR>", opt)
 nmap("fcp", ":GitConflictPrevConflict<CR>", opt)
 nmap("fco", ":GitConflictChooseOurs<CR>", opt)
 nmap("fct", ":GitConflictChooseTheirs<CR>", opt)
-nmap("fcc", ":GitConflictRefresh<CR>",opt)
+nmap("fcc", ":GitConflictRefresh<CR>", opt)

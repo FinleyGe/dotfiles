@@ -1,3 +1,4 @@
+--cspell:disable
 return {
   {
     "folke/neoconf.nvim",
@@ -69,9 +70,8 @@ return {
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.completion.spell,
           null_ls.builtins.diagnostics.codespell,
-          -- null_ls.builtins.formatting.codespell
-          require('cspell').diagnostics.with({config = cspell_config}),
-          require('cspell').code_actions.with({config = cspell_config}),
+          require('cspell').diagnostics.with({ config = cspell_config }),
+          require('cspell').code_actions.with({ config = cspell_config }),
         }
       })
     end,
@@ -79,4 +79,23 @@ return {
       'davidmh/cspell.nvim'
     }
   },
+  {
+    "Fildo7525/pretty_hover",
+    event = "LspAttach",
+    opts = {}
+  }, {
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  config = function()
+    require("lsp_lines").setup()
+    vim.diagnostic.config({
+      virtual_text = false,
+    })
+    vim.keymap.set(
+      "",
+      "<Leader>l",
+      require("lsp_lines").toggle,
+      { desc = "Toggle lsp_lines" }
+    )
+  end,
+}
 }

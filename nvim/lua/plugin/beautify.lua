@@ -46,7 +46,7 @@ return {
   },
   {
     "f-person/auto-dark-mode.nvim",
-    config = {
+    opts = {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option("background", "dark")
@@ -63,45 +63,38 @@ return {
       "Verf/deepwhite.nvim",
     },
     lazy = false,
-  },
-  {
-    "kyazdani42/nvim-web-devicons",
-    lazy = true,
-  },
-  {
-    "xiyaowong/nvim-transparent",
-    lazy = false,
-    config = function()
-      require("transparent").setup({
-        extra_groups = { -- table/string: additional groups that should be cleared
-          "all"
-        },
-      })
-    end
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = true,
-    event = "BufRead",
-    config = function()
-      require("ibl").setup {}
-    end
-  },
-  {
-    "petertriho/nvim-scrollbar",
-    -- lazy = true,
-    -- event = "VeryLazy",
-    config = function()
-      require("scrollbar").setup({
-        require("scrollbar.handlers.search").setup({}),
-      }
-      )
-    end,
-    dependencies = {
-      "kevinhwang91/nvim-hlslens",
-      "lewis6991/gitsigns.nvim",
+  }, {
+  "xiyaowong/nvim-transparent",
+  lazy = false,
+  config = function()
+    require("transparent").setup({
+      extra_groups = {   -- table/string: additional groups that should be cleared
+        "all"
+      },
+    })
+  end
+}, {
+  "lukas-reineke/indent-blankline.nvim",
+  lazy = true,
+  event = "BufRead",
+  config = function()
+    require("ibl").setup {}
+  end
+}, {
+  "petertriho/nvim-scrollbar",
+  -- lazy = true,
+  -- event = "VeryLazy",
+  config = function()
+    require("scrollbar").setup({
+      require("scrollbar.handlers.search").setup({}),
     }
-  },
+    )
+  end,
+  dependencies = {
+    "kevinhwang91/nvim-hlslens",
+    "lewis6991/gitsigns.nvim",
+  }
+},
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
@@ -197,7 +190,7 @@ return {
       vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
       vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-      vim.api.nvim_set_keymap('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
+      vim.api.nvim_set_keymap('n', '<Leader>c', '<Cmd>noh<CR>', kopts)
     end
   },
 }
