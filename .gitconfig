@@ -1,7 +1,10 @@
 [user]
 	email = m13203533462@163.com
 	name = FinleyGe
+	signingKey = /home/finley/.ssh/finleyITXPC.pub
 [core]
 	editor = nvim
 [init]
 	defaultbranch = main
+[gpg]
+	format = ssh

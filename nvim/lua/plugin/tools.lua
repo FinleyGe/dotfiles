@@ -55,7 +55,8 @@ return {
     },
     keys = {
       { ';t', '<cmd>TodoTelescope<CR>' },
-    }
+    },
+    event = "BufRead",
   },
   {
     "numToStr/Comment.nvim",
@@ -208,6 +209,12 @@ return {
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
         relculright = true,
+        ft_ignore = {
+          "dashboard",
+          "neo-tree",
+          "aerial",
+          "quickfix",
+        },
         segments = {
           {
             sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = false, wrap = true },
