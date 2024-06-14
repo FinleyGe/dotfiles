@@ -14,6 +14,14 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
+  formatting = {
+    format = require('lspkind').cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+      ellipsis_char = "…",
+      show_labelDetails = true,
+    })
+  },
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
@@ -33,7 +41,6 @@ cmp.setup({
   })
 })
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -41,7 +48,6 @@ cmp.setup.cmdline({ '/', '?' }, {
   }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({

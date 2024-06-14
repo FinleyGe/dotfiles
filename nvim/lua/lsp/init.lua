@@ -1,12 +1,6 @@
 --cspell:disable
 return {
   {
-    "folke/neoconf.nvim",
-    config = function()
-      require("neoconf").setup()
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
@@ -15,28 +9,6 @@ return {
     config = function()
       require("lsp.setup")
     end
-  },
-  {
-    "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
-    config = function()
-      require("lspsaga").setup({
-        lightbulb = {
-          enabled = false,
-          sign = false,
-          virtual_text = false,
-        },
-        outline = {
-          layout = 'float',
-        },
-        symbol_in_winbar = {
-          enable = false,
-        }
-      })
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter'
-    }
   },
   {
     'kaarmu/typst.vim',
@@ -50,54 +22,34 @@ return {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    opts = {
-      -- your options here
-    }
+    opts = {}
   },
   {
     "nvimtools/none-ls.nvim",
     event = "BufRead",
     config = function()
       local null_ls = require("null-ls")
-      local cspell_config = {
-        config_file_preferred_name = 'cspell.json',
-
-        find_json = function()
-          local home = os.getenv("HOME")
-          return home .. '/.cache/cspell/cspell.json'
-        end,
-      }
       require("null-ls").setup({
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettier,
-          -- require('cspell').diagnostics.with({ config = cspell_config }),
-          -- require('cspell').code_actions.with({ config = cspell_config }),
         }
       })
     end,
-    dependencies = {
-      'davidmh/cspell.nvim'
-    }
   },
   {
     "Fildo7525/pretty_hover",
     event = "LspAttach",
-    opts = {}
+    opts = {},
+    keys = {
+      { "K",  "<cmd>lua require('pretty_hover').hover()<CR>" },
+      { "gh", "<cmd>lua require('pretty_hover').hover()<CR>" }
+    }
   },
---   {
---   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
---   config = function()
---     require("lsp_lines").setup()
---     vim.diagnostic.config({
---       virtual_text = false,
---     })
---     vim.keymap.set(
---       "",
---       "<Leader>l",
---       require("lsp_lines").toggle,
---       { desc = "Toggle lsp_lines" }
---     )
---   end,
--- }
+  {
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
+    end,
+  }
 }

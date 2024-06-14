@@ -29,18 +29,16 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "VeryLazy" },
+    event = { "BufRead" },
     config = function()
       local configs = require("nvim-treesitter.configs")
       configs.setup({
         ensure_installed = ensure_list,
-        sync_install = false, -- Sync install
+        sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
       })
       vim.g.skip_ts_context_commentstring_module = true
-      -- local ft_to_parser = require("nvim-treesitter.language.register").filetype_to_parsername
-      -- ft_to_parser.mdx = "markdown"
       vim.treesitter.language.register(
         "mdx", "mardown"
       )
@@ -48,5 +46,21 @@ return {
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
+  },
+  {
+    'stevearc/aerial.nvim',
+    opts = {
+      layout = {
+        min_width = 40,
+        resize_to_content = true,
+      }
+    },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+    keys = {
+      { "<Leader>o", ":AerialToggle<CR>" },
+    }
   }
 }

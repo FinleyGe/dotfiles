@@ -11,7 +11,7 @@ return {
           keymap = {
             jump_next = "<C-j>",
             jump_prev = "<C-k>",
-            select = "<CR>",
+            select = "<C-CR>",
             close = "<Esc>",
             open = "<C-l>",
           },
@@ -42,9 +42,10 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "zbirenbaum/copilot-cmp",
       "L3MON4D3/LuaSnip",
+      "onsails/lspkind.nvim",
+      "molleweide/LuaSnip-snippets.nvim",
     },
-    -- event = "VeryLazy",
-    lazy = false, -- Lazy load could cause problem
+    event = "InsertEnter",
     config = function()
       require("plugin.cmp-setup")
     end

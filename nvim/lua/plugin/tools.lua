@@ -28,11 +28,6 @@ end
 
 return {
   {
-    "norcalli/nvim-colorizer.lua",
-    cmd = "ColorizerToggle",
-    opts = {},
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
@@ -48,7 +43,7 @@ return {
           icon = " ", -- icon used for the sign, and in search results
           color = "error", -- can be a hex color, or a named color (see below)
           alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-          -- signs = false, -- configure signs for some keywords individually
+          signs = false, -- configure signs for some keywords individually
         },
         TODO = { icon = " ", color = "info" },
         HACK = { icon = " ", color = "warning" },
@@ -57,30 +52,10 @@ return {
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       },
-      colors = {}
     },
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      { "nvim-lua/popup.nvim" },
-      { "nvim-lua/plenary.nvim" },
-      { "debugloop/telescope-undo.nvim" },
-      { "piersolenski/telescope-import.nvim" },
-      { "Snikimonkd/telescope-git-conflicts.nvim" },
-    },
-    cmd = "Telescope",
-    config = function()
-      require('telescope').setup({
-        extensions = {
-          undo = {},
-        },
-      })
-      require('telescope').load_extension('undo')
-      require("telescope").load_extension("import")
-      require("telescope").load_extension("workspaces")
-      require("telescope").load_extension("conflicts")
-    end
+    keys = {
+      { ';t', '<cmd>TodoTelescope<CR>' },
+    }
   },
   {
     "numToStr/Comment.nvim",
@@ -103,7 +78,9 @@ return {
   },
   {
     "moll/vim-bbye",
-    cmd = "Bdelete",
+    keys = {
+      {"<Leader>q", "<cmd>Bdelete!<CR>" },
+    }
   },
   {
     "wakatime/vim-wakatime",
@@ -122,7 +99,13 @@ return {
     event = "VeryLazy",
     config = function()
       require('Navigator').setup()
-    end
+    end,
+    keys = {
+      { '<M-h>', '<cmd>NavigatorLeft<CR>' },
+      { '<M-j>', '<cmd>NavigatorDown<CR>' },
+      { '<M-k>', '<cmd>NavigatorUp<CR>' },
+      { '<M-l>', '<cmd>NavigatorRight<CR>' },
+    }
   },
   {
     "kevinhwang91/nvim-ufo",
@@ -154,7 +137,7 @@ return {
         "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Diagnostics (Trouble)",
       },
-   },
+    },
   },
   {
     "nvim-lua/lsp-status.nvim",
@@ -224,7 +207,6 @@ return {
     config = function()
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
-        -- configuration goes here, for example:
         relculright = true,
         segments = {
           {
@@ -250,30 +232,30 @@ return {
         }
       })
     end,
-  }, {
+  },
 
-  "lalitmee/browse.nvim",
-  dependencies = { "nvim-telescope/telescope.nvim" },
-  keys = {
-    {
-      mode = { "n", "x" },
-      "<leader>s",
-      function() require("browse").open_bookmarks() end,
-    },
-    {
-      mode = { "n", "x" },
-      "<leader>b",
-      function() require("browse").browse() end,
-    } },
+  {
+    "lalitmee/browse.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    keys = {
+      {
+        mode = { "n", "x" },
+        "<leader>s",
+        function() require("browse").open_bookmarks() end,
+      },
+      {
+        mode = { "n", "x" },
+        "<leader>b",
+        function() require("browse").browse() end,
+      } },
 
-  opts = {
-    bookmarks = {
-      ["github_code_search"] = "https://github.com/search?q=%s&type=code",
-      ["github_repo_search"] = "https://github.com/search?q=%s&type=repositories",
+    opts = {
+      bookmarks = {
+        ["github_code_search"] = "https://github.com/search?q=%s&type=code",
+        ["github_repo_search"] = "https://github.com/search?q=%s&type=repositories",
+      },
     },
   },
-},
-  { 'akinsho/git-conflict.nvim', version = "*", config = true },
   {
     "natecraddock/workspaces.nvim",
     config = function()
@@ -296,29 +278,29 @@ return {
     end
   },
   {
-    "cshuaimin/ssr.nvim",
-    config = function()
-      require("ssr").setup {
-        border = "rounded",
-        min_width = 50,
-        min_height = 5,
-        max_width = 120,
-        max_height = 25,
-        adjust_window = true,
-        keymaps = {
-          close = "q",
-          next_match = "n",
-          prev_match = "N",
-          replace_confirm = "<cr>",
-          replace_all = "<leader><cr>",
-        },
-      }
-    end
-  },
-  {
     "Bekaboo/dropbar.nvim",
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim'
     }
-  }
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    event = "BufRead",
+    config = function()
+      local kopts = { noremap = true, silent = true }
+
+      vim.api.nvim_set_keymap('n', 'n',
+        [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+        kopts)
+      vim.api.nvim_set_keymap('n', 'N',
+        [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+        kopts)
+      vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+
+      vim.api.nvim_set_keymap('n', '<Leader>c', '<Cmd>noh<CR>', kopts)
+    end
+  },
 }

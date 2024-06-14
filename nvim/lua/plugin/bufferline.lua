@@ -34,12 +34,12 @@ return {
           end,
           offsets = {
             {
-              filetype = "NvimTree",
+              filetype = "neo-tree",
               text = "File Explorer",
               highlight = "Directory",
               text_align = "center"
             }, {
-            filetype = "sagaoutline",
+            filetype = "aerial",
             text = "Outline",
             highlight = "Directory",
             text_align = "center"
@@ -47,6 +47,22 @@ return {
           },
         }
       }
-    end
+    end,
+    keys = {
+      { '<tab>',      '<cmd>BufferLineCycleNext<CR>' },
+      { '<s-tab>',    '<cmd>BufferLineCyclePrev<CR>' },
+      { '<Leader>1',  '<cmd>BufferLineGoToBuffer 1<CR>' },
+      { '<Leader>2',  '<cmd>BufferLineGoToBuffer 2<CR>' },
+      { '<Leader>3',  '<cmd>BufferLineGoToBuffer 3<CR>' },
+      { '<Leader>4',  '<cmd>BufferLineGoToBuffer 4<CR>' },
+      { '<Leader>5',  '<cmd>BufferLineGoToBuffer 5<CR>' },
+      { '<Leader>6',  '<cmd>BufferLineGoToBuffer 6<CR>' },
+      { '<Leader>7',  '<cmd>BufferLineGoToBuffer 7<CR>' },
+      { '<Leader>8',  '<cmd>BufferLineGoToBuffer 8<CR>' },
+      { '<Leader>9',  '<cmd>BufferLineGoToBuffer 9<CR>' },
+      { '<Leader>0',  '<cmd>BufferLineGoToBuffer 10<CR>' },
+      { '<Leader>bd', '<cmd>BufferLineSortByDirectory<CR>' },
+      { '<Leader>bl', '<cmd>BufferLineSortByExtension<CR>' },
+    }
   }
 }

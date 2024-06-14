@@ -25,7 +25,6 @@ require("mason").setup({
   }
 })
 
-
 local lsp = {
   'lua_ls',
   'jdtls',
@@ -65,9 +64,9 @@ local home = os.getenv("HOME")
 require("mason-lspconfig").setup_handlers({
   function(server_name)
     local server_config = {}
-    if require("neoconf").get(server_name .. ".disable") then
-      return
-    end
+    -- if require("neoconf").get(server_name .. ".disable") then
+    --   return
+    -- end
     if server_name == "tsserver" then
       server_config.init_options = {
         plugins = {
@@ -106,3 +105,24 @@ vim.notify = function(msg, ...)
 
   notify(msg, ...)
 end
+
+local map = vim.api.nvim_set_keymap
+local nmap = function(lhs, rhs, opts)
+  map('n', lhs, rhs, opts)
+end
+local opt = { noremap = true, silent = true }
+
+map("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+-- map("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
+map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
+-- map("n", "gh", "<cmd>lua require('pretty_hover').hover()<CR>", opt)
+map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+-- map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
+-- map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
+map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+-- nmap("<Leader>p", "<cmd>Lspsaga term_toggle<CR>", opt)
+nmap("gp", "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opt)
+
+nmap("<Leader>f", ":lua vim.lsp.buf.format()<cr>", opt)

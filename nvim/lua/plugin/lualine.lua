@@ -31,7 +31,9 @@ return {
           'lazy',
           'quickfix',
           'trouble',
-          'nvim-tree',
+          'neo-tree',
+          'aerial',
+          'mason',
         },
       }
     end
