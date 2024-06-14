@@ -123,6 +123,6 @@ map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
 map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
 -- nmap("<Leader>p", "<cmd>Lspsaga term_toggle<CR>", opt)
-nmap("gp", "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>", opt)
+nmap("gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 
 nmap("<Leader>f", ":lua vim.lsp.buf.format()<cr>", opt)

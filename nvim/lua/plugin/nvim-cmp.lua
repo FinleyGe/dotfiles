@@ -45,7 +45,6 @@ return {
       "onsails/lspkind.nvim",
       "molleweide/LuaSnip-snippets.nvim",
     },
-    event = "InsertEnter",
     config = function()
       require("plugin.cmp-setup")
     end
