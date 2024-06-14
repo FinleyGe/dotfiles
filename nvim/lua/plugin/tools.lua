@@ -57,11 +57,7 @@ return {
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       },
-      colors = {
-        -- info = { "todo" },
-        -- warning = { "warning" },
-        -- error = { "error" }
-      }
+      colors = {}
     },
   },
   {
@@ -150,11 +146,15 @@ return {
   },
   {
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-    opts = {
-      position = "right",
-      width = 40,
-    }
+    opts = {},
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>t",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+   },
   },
   {
     "nvim-lua/lsp-status.nvim",
@@ -315,4 +315,10 @@ return {
       }
     end
   },
+  {
+    "Bekaboo/dropbar.nvim",
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim'
+    }
+  }
 }

@@ -9,7 +9,6 @@ local opt = { noremap = true, silent = true }
 nmap('<Leader>e', ':Neotree toggle<CR>', opt)
 nmap('<Leader>r', ':Neotree current<CR>', opt)
 nmap('<Leader>o', ':Lspsaga outline<CR>', opt)
-nmap("<Leader>t", ":TroubleToggle<CR>", opt)
 
 nmap('<M-h>', '<cmd>NavigatorLeft<CR>', opt)
 nmap('<M-j>', '<cmd>NavigatorDown<CR>', opt)

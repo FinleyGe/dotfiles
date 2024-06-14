@@ -29,6 +29,9 @@ return {
         outline = {
           layout = 'float',
         },
+        symbol_in_winbar = {
+          enable = false,
+        }
       })
     end,
     dependencies = {
@@ -68,10 +71,8 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettier,
-          null_ls.builtins.completion.spell,
-          null_ls.builtins.diagnostics.codespell,
-          require('cspell').diagnostics.with({ config = cspell_config }),
-          require('cspell').code_actions.with({ config = cspell_config }),
+          -- require('cspell').diagnostics.with({ config = cspell_config }),
+          -- require('cspell').code_actions.with({ config = cspell_config }),
         }
       })
     end,
@@ -83,19 +84,20 @@ return {
     "Fildo7525/pretty_hover",
     event = "LspAttach",
     opts = {}
-  }, {
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  config = function()
-    require("lsp_lines").setup()
-    vim.diagnostic.config({
-      virtual_text = false,
-    })
-    vim.keymap.set(
-      "",
-      "<Leader>l",
-      require("lsp_lines").toggle,
-      { desc = "Toggle lsp_lines" }
-    )
-  end,
-}
+  },
+--   {
+--   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+--   config = function()
+--     require("lsp_lines").setup()
+--     vim.diagnostic.config({
+--       virtual_text = false,
+--     })
+--     vim.keymap.set(
+--       "",
+--       "<Leader>l",
+--       require("lsp_lines").toggle,
+--       { desc = "Toggle lsp_lines" }
+--     )
+--   end,
+-- }
 }
