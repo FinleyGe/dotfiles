@@ -1,8 +1,11 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 return {
   {
     "akinsho/bufferline.nvim",
     lazy = true,
     event = "VeryLazy",
+    cond = not vscode and not firenvim,
     config = function()
       require('bufferline').setup {
 

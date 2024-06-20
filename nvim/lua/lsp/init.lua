@@ -51,5 +51,9 @@ return {
     config = function()
       vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
     end,
+  },
+  {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
   }
 }

@@ -80,7 +80,7 @@ return {
   {
     "moll/vim-bbye",
     keys = {
-      {"<Leader>q", "<cmd>Bdelete!<CR>" },
+      { "<Leader>q", "<cmd>Bdelete!<CR>" },
     }
   },
   {
@@ -310,4 +310,11 @@ return {
       vim.api.nvim_set_keymap('n', '<Leader>c', '<Cmd>noh<CR>', kopts)
     end
   },
+  {
+    'glacambre/firenvim',
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end
+  }
 }

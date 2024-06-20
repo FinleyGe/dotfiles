@@ -1,12 +1,13 @@
 local not_vscode = not vim.g.vscode
 local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     lazy = false,
-    cond = not_vscode,
+    cond = not_vscode and not firenvim,
     config = function()
       require("catppuccin").setup({
         integrations = {
@@ -62,7 +63,7 @@ return {
       end,
     },
     lazy = false,
-    cond = not_vscode,
+    cond = not_vscode and not firenvim,
   },
   {
     "xiyaowong/nvim-transparent",
@@ -76,6 +77,6 @@ return {
       require('transparent').clear_prefix('NeoTree')
       require('transparent').clear_prefix('Trouble')
     end,
-    cond = not_vscode,
+    cond = not_vscode and not firenvim,
   },
 }
