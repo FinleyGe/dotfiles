@@ -5,6 +5,7 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "yioneko/nvim-vtsls"
     },
     config = function()
       require("lsp.setup")

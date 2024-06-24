@@ -45,12 +45,13 @@ local lsp = {
   'asm_lsp',
   'tailwindcss',
   'ltex',
-  "tsserver",
+  -- "tsserver",
   "dockerls",
   "docker_compose_language_service",
   "prismals",
   -- "mdx_analyzer",
   "marksman",
+  "vtsls"
 };
 
 require("mason-lspconfig").setup {
@@ -67,7 +68,7 @@ require("mason-lspconfig").setup_handlers({
     -- if require("neoconf").get(server_name .. ".disable") then
     --   return
     -- end
-    if server_name == "tsserver" then
+    if server_name == "tsserver" or server_name == "vtsls" then
       server_config.init_options = {
         plugins = {
           {
