@@ -1,0 +1,24 @@
+snippet nextapi "Next api template"
+	import type { ApiRequestProps, ApiResponseType } from '@fastgpt/service/type/next';
+	import { NextAPI } from '@/service/middleware/entry';
+	export type ${1:filename}Query = {};
+	export type ${1:filename}Body = {};
+	export type ${1:filename}Response = {};
+	async function handler(
+	  req: ApiRequestProps<${1:filename}Body, ${1:filename}Query>,
+	  res: ApiResponseType<any>,
+	): Promise<${1:filename}Response> {
+	    $2
+	    return {}
+	}
+	export default NextAPI(handler);
+snippet context "use context template"
+	import React, { ReactNode } from 'react';
+	import { createContext } from 'use-context-selector';
+	type ContextType = {$1};
+	export const Context = createContext<ContextType>({});
+	const ContextProvider = ({ children }: { children: ReactNode }) => {
+	  const contextValue: ContextType = {};
+	  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
+	};
+	export default ContextProvider

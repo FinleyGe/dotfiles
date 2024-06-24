@@ -1,10 +1,11 @@
 local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 
 return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
-    cond = not vscode,
+    cond = not vscode and not firenvim,
     config = function()
       require('gitsigns').setup {
         signs                        = {
@@ -45,9 +46,9 @@ return {
           row = 0,
           col = 1
         },
-        yadm                         = {
-          enable = false
-        },
+        -- yadm                         = {
+        --   enable = false
+        -- },
       }
     end,
     keys = require("keybindings.gitsigns")
@@ -56,6 +57,7 @@ return {
     'akinsho/git-conflict.nvim',
     version = "*",
     config = true,
+    cond = not vscode and not firenvim,
     keys = require("keybindings.gitconflicts")
   },
 }

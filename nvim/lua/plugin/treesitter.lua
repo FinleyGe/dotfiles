@@ -1,3 +1,5 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 local ensure_list = {
   'c',
   'cpp',
@@ -61,6 +63,7 @@ return {
     },
     keys = {
       { "<Leader>o", ":AerialToggle<CR>" },
-    }
+    },
+    cond = not vscode and not firenvim
   }
 }
