@@ -122,6 +122,7 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
 
 -- map("n", "gh", "<cmd>lua require('pretty_hover').hover()<CR>", opt)
 map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
 -- map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 -- map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
