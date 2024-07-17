@@ -48,6 +48,7 @@ return {
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
+    cond = not vscode,
   },
   {
     'stevearc/aerial.nvim',

@@ -1,3 +1,5 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 --cspell:disable
 return {
   {
@@ -7,6 +9,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "yioneko/nvim-vtsls"
     },
+    cond = not vscode and not firenvim,
     config = function()
       require("lsp.setup")
     end
@@ -18,16 +21,19 @@ return {
   {
     'VidocqH/lsp-lens.nvim',
     event = "BufRead",
+    cond = not vscode and not firenvim,
   },
   {
     "zeioth/garbage-day.nvim",
     dependencies = "neovim/nvim-lspconfig",
     event = "VeryLazy",
+    cond = not vscode and not firenvim,
     opts = {}
   },
   {
     "nvimtools/none-ls.nvim",
     event = "BufRead",
+    cond = not vscode and not firenvim,
     config = function()
       local null_ls = require("null-ls")
       require("null-ls").setup({
@@ -49,6 +55,7 @@ return {
   -- },
   {
     "lewis6991/hover.nvim",
+    cond = not vscode and not firenvim,
     config = function()
       require("hover").setup {
         init = function()
@@ -96,5 +103,6 @@ return {
   {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
+    cond = not vscode and not firenvim,
   }
 }
