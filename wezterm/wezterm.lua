@@ -82,10 +82,9 @@ local home = os.getenv('HOME')
 function get_image_by_appearance(appearance)
   if appearance:find 'Dark' then
     -- return '/home/finley/.config/wezterm/images/dark.png'
-    return home .. '/.config/wezterm/images/dark.png'
+    return home .. '/.config/wezterm/images/dark-2.png'
   else
-    -- return '/home/finley/.config/wezterm/images/light.png'
-    return home .. '/.config/wezterm/images/light.png'
+    return home .. '/.config/wezterm/images/light-2.png'
   end
 end
 
