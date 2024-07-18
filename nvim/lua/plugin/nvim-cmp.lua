@@ -1,8 +1,11 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
+    cond = not vscode and not firenvim,
     config = function()
       require("copilot").setup({
         panel = {
@@ -34,6 +37,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    cond = not vscode and not firenvim,
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",

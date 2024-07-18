@@ -1,12 +1,9 @@
 [user]
 	email = m13203533462@163.com
-	name = FinleyGe
-	signingKey = /home/finley/.ssh/id_ed25519.pub
+	name = Finley Ge
 [core]
 	editor = nvim
 [init]
-	defaultbranch = main
-[gpg]
-	format = ssh
-[commit]
-	gpgSign = true
+	defaultBranch = main
+[safe]
+	directory = *

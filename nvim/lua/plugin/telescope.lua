@@ -1,6 +1,9 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 return {
   {
     "nvim-telescope/telescope.nvim",
+    cond = not vscode and not firenvim,
     dependencies = {
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },

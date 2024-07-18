@@ -1,6 +1,9 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    cond = not vscode and not firenvim,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",

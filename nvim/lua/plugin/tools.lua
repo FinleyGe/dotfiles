@@ -1,3 +1,6 @@
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
+
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = (' 󰁂 %d '):format(endLnum - lnum)
@@ -81,19 +84,23 @@ return {
     "moll/vim-bbye",
     keys = {
       { "<Leader>q", "<cmd>Bdelete!<CR>" },
-    }
+    },
+    cond = not vscode and not firenvim,
   },
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",
+    cond = not vscode and not firenvim,
   },
   {
     "tpope/vim-fugitive",
     cmd = "Git",
+    cond = not vscode and not firenvim,
   },
   {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
+    cond = not vscode and not firenvim,
   },
   {
     "numToStr/Navigator.nvim",
@@ -106,12 +113,14 @@ return {
       { '<M-j>', '<cmd>NavigatorDown<CR>' },
       { '<M-k>', '<cmd>NavigatorUp<CR>' },
       { '<M-l>', '<cmd>NavigatorRight<CR>' },
-    }
+    },
+    cond = not vscode and not firenvim,
   },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     event = "BufRead",
+    cond = not vscode and not firenvim,
     config = function()
       vim.o.foldcolumn = "1"
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -289,6 +298,7 @@ return {
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim'
     }
+    cond = not vscode and not firenvim,
   },
   {
     "kevinhwang91/nvim-hlslens",

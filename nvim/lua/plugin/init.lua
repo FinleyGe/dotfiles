@@ -1,4 +1,6 @@
--- setup lazy
+local vscode = vim.g.vscode
+local firenvim = vim.g.started_by_firenvim
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
