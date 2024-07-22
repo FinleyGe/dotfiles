@@ -84,7 +84,7 @@ function get_image_by_appearance(appearance)
     -- return '/home/finley/.config/wezterm/images/dark.png'
     return home .. '/.config/wezterm/images/dark-2.png'
   else
-    return home .. '/.config/wezterm/images/light-2.png'
+    return home .. '/.config/wezterm/images/light.png'
   end
 end
 

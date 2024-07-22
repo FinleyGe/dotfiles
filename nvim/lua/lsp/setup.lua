@@ -45,7 +45,7 @@ local lsp = {
   'asm_lsp',
   'tailwindcss',
   'ltex',
-  -- "tsserver",
+  "tsserver",
   "dockerls",
   "docker_compose_language_service",
   "prismals",
@@ -68,7 +68,7 @@ require("mason-lspconfig").setup_handlers({
     -- if require("neoconf").get(server_name .. ".disable") then
     --   return
     -- end
-    if server_name == "tsserver" or server_name == "vtsls" then
+    if server_name == "tsserver" then
       server_config.init_options = {
         plugins = {
           {
@@ -78,16 +78,16 @@ require("mason-lspconfig").setup_handlers({
           }
         },
       }
-      server_config.filetypes = { 'vue', 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' }
+      server_config.filetypes = { 'vue' }
     end
-    if server_name == "volar" then
-      server_config.init_options = {
-        typescript = {
-          tsdk = home .. '/.local/share/pnpm/global/5/node_modules/typescript/lib',
-        }
-      }
-      server_config.filetypes = { 'vue', 'typescript', 'javascript' }
-    end
+    -- if server_name == "volar" then
+    --   server_config.init_options = {
+    --     typescript = {
+    --       tsdk = home .. '/.local/share/pnpm/global/5/node_modules/typescript/lib',
+    --     }
+    --   }
+    --   server_config.filetypes = { 'vue', 'typescript', 'javascript' }
+    -- end
     if server_name == "clangd" then
       server_config.filetypes = { 'c', 'cpp' }
     end
