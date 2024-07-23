@@ -1,6 +1,7 @@
 [user]
 	email = m13203533462@163.com
 	name = Finley Ge
+	signingKey = /home/finley/.ssh/id_ed25519.pub
 [core]
 	editor = nvim
 [init]
@@ -12,3 +13,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgSign = true
+[gpg]
+	format = ssh
