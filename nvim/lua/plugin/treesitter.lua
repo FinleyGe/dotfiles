@@ -53,10 +53,24 @@ return {
   {
     'stevearc/aerial.nvim',
     opts = {
+      backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
       layout = {
         min_width = 40,
         resize_to_content = true,
-      }
+      },
+      filter_kind = {
+        "Class",
+        "Constructor",
+        "Enum",
+        "Function",
+        "Interface",
+        "Module",
+        "Method",
+        "Struct",
+        "Constant",
+        "Variable",
+        "TypeParameter"
+      },
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

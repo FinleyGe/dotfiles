@@ -7,6 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "assistant": {
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-4-turbo-preview",
+      "available_models": []
+    }
+  },
   "theme": {
     "dark": "Catppuccin Frappé",
     "light": "Catppuccin Latte",

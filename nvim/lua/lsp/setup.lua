@@ -51,7 +51,8 @@ local lsp = {
   "prismals",
   -- "mdx_analyzer",
   "marksman",
-  "vtsls"
+  "vtsls",
+  "jsonls"
 };
 
 require("mason-lspconfig").setup {
