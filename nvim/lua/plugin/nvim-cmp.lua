@@ -53,4 +53,10 @@ return {
       require("plugin.cmp-setup")
     end
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    opts = {
+      debug = true,
+    }
+  }
 }
