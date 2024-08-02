@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Priority Grid",
+    "padding": 0,
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 100,
+        "width": 25
+      },
+      {
+        "x": 25,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      },
+      {
+        "x": 75,
+        "y": 0,
+        "height": 100,
+        "width": 25
+      }
+    ]
+  },
+  {
+    "name": "Quadrant Grid",
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 0,
+        "y": 50,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 50,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 0,
+        "height": 50,
+        "width": 50
+      }
+    ]
+  },
+  {
+    "name": "Triple Grid",
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 100,
+        "width": 33.33
+      },
+      {
+        "x": 33.33,
+        "y": 0,
+        "height": 100,
+        "width": 33.33
+      },
+      {
+        "x": 66.66,
+        "y": 0,
+        "height": 100,
+        "width": 33.33
+      }
+    ]
+  },
+  {
+    "name": "Double Grid",
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      }
+    ]
+  },
+  {
+    "name": "1-2 Grid",
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 0,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 50,
+        "height": 50,
+        "width": 50
+      }
+    ]
+  }, {
+    "name": "2-1 Grid",
+    "zones": [
+      {
+        "x": 0,
+        "y": 0,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 0,
+        "y": 50,
+        "height": 50,
+        "width": 50
+      },
+      {
+        "x": 50,
+        "y": 0,
+        "height": 100,
+        "width": 50
+      }
+    ]
+  }
+]
