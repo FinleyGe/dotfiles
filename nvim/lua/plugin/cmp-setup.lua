@@ -31,14 +31,17 @@ cmp.setup({
     ['<s-tab>'] = cmp.mapping.select_prev_item(),
     ['<c-,>'] = cmp.mapping.complete(),
   }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'copilot', group_index = 1 },
-  }, {
-    { name = 'buffer' },
-    { name = "path" },
-  })
+  sources = cmp.config.sources(
+    {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      -- { name = 'copilot',   group_index = 1 },
+      { name = "supermaven" },
+    },
+    {
+      { name = 'buffer' },
+      { name = "path" },
+    })
 })
 
 cmp.setup.cmdline({ '/', '?' }, {

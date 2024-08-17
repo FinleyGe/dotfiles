@@ -115,20 +115,14 @@ end
 local opt = { noremap = true, silent = true }
 
 map("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
--- map("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-
--- map("n", "gh", "<cmd>lua require('pretty_hover').hover()<CR>", opt)
 map("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
--- map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
--- map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
 map("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
--- nmap("<Leader>p", "<cmd>Lspsaga term_toggle<CR>", opt)
 nmap("gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
 
 nmap("<Leader>f", ":lua vim.lsp.buf.format()<cr>", opt)
