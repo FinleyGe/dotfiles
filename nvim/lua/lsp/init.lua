@@ -39,8 +39,8 @@ return {
       require("null-ls").setup({
         sources = {
           null_ls.builtins.formatting.stylua,
-          -- null_ls.builtins.formatting.prettier,
-          require("none-ls.diagnostics.eslint")
+          null_ls.builtins.formatting.prettier,
+          -- require("none-ls.diagnostics.eslint")
         }
       })
     end,

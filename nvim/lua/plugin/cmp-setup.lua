@@ -36,7 +36,7 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
       -- { name = 'copilot',   group_index = 1 },
-      { name = "supermaven" },
+      -- { name = "supermaven" },
     },
     {
       { name = 'buffer' },

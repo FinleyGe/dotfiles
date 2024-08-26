@@ -13,15 +13,15 @@ return {
     },
     cmd = "Telescope",
     config = function()
-      require('telescope').setup({
-        extensions = {
-          undo = {},
-        },
-      })
-      require('telescope').load_extension('undo')
-      require("telescope").load_extension("import")
-      require("telescope").load_extension("workspaces")
-      require("telescope").load_extension("conflicts")
+      -- require('telescope').setup({
+      --   extensions = {
+      --     undo = {},
+      --   },
+      -- })
+      -- require('telescope').load_extension('undo')
+      -- require("telescope").load_extension("import")
+      -- require("telescope").load_extension("workspaces")
+      -- require("telescope").load_extension("conflicts")
     end,
     keys = {
       { ';f', ':Telescope find_files<CR>' },

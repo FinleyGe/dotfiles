@@ -67,7 +67,7 @@ return {
         keymaps = {
           accept_suggestion = "<C-Enter>",
           clear_suggestion = "<C-]>",
-          accept_word = "<C-j>",
+          accept_word = "<C-l>",
         },
         -- ignore_filetypes = { cpp = true },
         -- color = {
