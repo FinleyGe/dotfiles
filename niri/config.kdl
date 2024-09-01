@@ -184,10 +184,10 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
-       // top 64
-        // bottom 64
+        left 32
+        right 32
+        top 32
+        bottom 32
     }
 }
 
@@ -199,6 +199,8 @@ layout {
 spawn-at-startup "waybar";
 spawn-at-startup "mako";
 spawn-at-startup "xwayland-satellite";
+spawn-at-startup "Xwayland";
+spawn-at-startup "clipboard-sync";
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -468,4 +470,6 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+C { spawn "sh" "-c" "env DISPLAY=:1 xsel -ob | wl-copy"; }
+    Mod+Shift+V { spawn "sh" "-c" "wl-paste -n | env DISPLAY=:1 xsel -ib"; }
 }

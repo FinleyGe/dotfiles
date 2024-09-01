@@ -18,6 +18,8 @@ cp ~/.fonts $backup -r
 cp ~/.config/zed $backup -r
 cp ~/.config/niri $backup -r
 cp ~/.config/waybar $backup -r
+ep ~/.config/mako $backup -r
+
 echo "dotfiles copied"
 
 git add .

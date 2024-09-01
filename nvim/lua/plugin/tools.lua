@@ -326,5 +326,15 @@ return {
     build = function()
       vim.fn["firenvim#install"](0)
     end
-  }
+  }, {
+  "Al0den/notion.nvim",
+  lazy = false, --Should work when lazy loaded, not tested
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
+  },
+  config = function()
+    require "notion".setup()
+  end,
+},
 }
