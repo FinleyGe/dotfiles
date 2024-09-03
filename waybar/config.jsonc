@@ -12,19 +12,19 @@
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "network",
     "wlr/taskbar"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
+    "network",
     "pulseaudio",
-    "mpd",
+    // "mpd",
     "cpu",
     "memory",
-    "battery"
-    // "custom/logout"
+    "battery",
+    "tray"
   ],
   "custom/logout": {
     "format": "⏻",
@@ -165,14 +165,15 @@
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "",
     "format-disconnected": "⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "nm-connection-editor"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": " {icon}",
-    "format-muted": "",
+    "format-bluetooth-muted": "Muted {icon}",
+    "format-muted": "Muted",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
