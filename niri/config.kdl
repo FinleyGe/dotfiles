@@ -198,9 +198,9 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "waybar";
 spawn-at-startup "mako";
-spawn-at-startup "xwayland-satellite";
-spawn-at-startup "Xwayland";
-spawn-at-startup "clipboard-sync";
+// spawn-at-startup "xwayland-satellite";
+// spawn-at-startup "Xwayland";
+// spawn-at-startup "clipboard-sync";
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

@@ -50,6 +50,7 @@ return {
       openai = {
         -- endpoint = "https://api.nextapi.fun",
         endpoint = "https://oneapi.fastgpt.in/v1",
+        -- endpoint = "http://localhost:3003/api/v1",
         model = "gpt-4o-mini",
         timeout = 30000,
         ["local"] = false,
