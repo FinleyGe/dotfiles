@@ -1,1 +1,2 @@
 ./conf.d/env.fish
+fishd.tmp.*
