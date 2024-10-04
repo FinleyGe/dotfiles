@@ -1,7 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = {}
-
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
@@ -98,8 +97,8 @@ config.background = {
 
 config.color_scheme = scheme_for_appearance(get_appearance())
 -- config.window_background_gradient = background_for_appearance(get_appearance())
-config.initial_cols = 120
-config.initial_rows = 40
+-- config.initial_cols = 120
+-- config.initial_rows = 40
 
 config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',

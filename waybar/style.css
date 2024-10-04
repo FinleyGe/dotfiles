@@ -1,8 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Cantarell, 'Font Awesome 6 Free';
+    font-family: 'FiraCode Nerd Font';
     font-size: 14px;
-    font-feature-settings: "tnum";
 }
 
 window#waybar {
@@ -130,7 +129,6 @@ button:hover {
     margin-left: 4px;
 }
 
-/*
 #battery.charging, #battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
@@ -152,7 +150,6 @@ button:hover {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-*/
 
 label:focus {
     background-color: #000000;

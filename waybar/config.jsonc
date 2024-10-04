@@ -1,16 +1,10 @@
 {
   "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
-  // "position": "right",
-  // "position": "left",
-  // "output": "eDP-1",
   "height": 32, // Waybar height (to be removed for auto height)
   "margin-top": 4,
   "margin-left": 4,
   "margin-right": 4,
-  // "width": 300, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
-  // Choose the order of the modules
   "modules-left": [
     "wlr/taskbar"
   ],
@@ -20,9 +14,10 @@
   "modules-right": [
     "network",
     "pulseaudio",
-    // "mpd",
+    "mpd",
     "cpu",
     "memory",
+    "temperature",
     "battery",
     "tray"
   ],
@@ -102,11 +97,11 @@
     "format": "{:%e %B %H:%M}"
   },
   "cpu": {
-    "format": "{usage}% ",
+    "format": "{usage}%  ",
     "tooltip": false
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}%  "
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -142,11 +137,9 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
       "",
       "",
@@ -159,11 +152,10 @@
     "bat": "BAT2"
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "",
-    "format-ethernet": "",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "",
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "{ifname} via {gwaddr} 󱂇 ",
+    "format-linked": " ",
     "format-disconnected": "⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "on-click": "nm-connection-editor"
@@ -177,7 +169,7 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
+      "headphone": " ",
       "hands-free": "",
       "headset": "",
       "phone": "",
