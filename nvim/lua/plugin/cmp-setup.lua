@@ -1,5 +1,5 @@
 -- Set up nvim-cmp.
-local cmp = require 'cmp'
+local cmp = require('cmp')
 require("luasnip.loaders.from_snipmate").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/flutter-snippets" } })
@@ -13,6 +13,9 @@ cmp.setup({
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
+  },
+  completion = {
+    keyword_length = 1,
   },
   formatting = {
     format = require('lspkind').cmp_format({
@@ -28,15 +31,13 @@ cmp.setup({
       select = true
     }),
     ['<tab>'] = cmp.mapping.select_next_item(),
-    ['<s-tab>'] = cmp.mapping.select_prev_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
     ['<c-,>'] = cmp.mapping.complete(),
   }),
   sources = cmp.config.sources(
     {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-      -- { name = 'copilot',   group_index = 1 },
-      -- { name = "supermaven" },
     },
     {
       { name = 'buffer' },

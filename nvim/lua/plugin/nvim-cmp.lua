@@ -43,31 +43,34 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    version = false,
     build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
     opts = {
       ---@alias Provider "openai" | "claude" | "azure"  | "copilot" | "cohere" | [string]
       provider = "openai",
       openai = {
-        -- endpoint = "https://api.nextapi.fun",
         endpoint = "https://oneapi.fastgpt.in/v1",
-        -- endpoint = "http://localhost:3003/api/v1",
         model = "gpt-4o-mini",
         timeout = 30000,
         ["local"] = false,
         temperature = 0,
-        -- max_tokens = 4096,
       },
       mappings = {
-        ask = "<leader>aa",
-        edit = "<leader>ae",
-        refresh = "<leader>ar",
         --- @class AvanteConflictMappings
         diff = {
           ours = "co",
           theirs = "ct",
+          all_theirs = "ca",
           both = "cb",
+          cursor = "cc",
           next = "]x",
           prev = "[x",
+        },
+        suggestions = {
+          accept = "<C-Enter>",
+          next = "<C-j>",
+          prev = "<C-k>",
+          dismiss = "<C-c>",
         },
         jump = {
           next = "]]",
@@ -77,9 +80,11 @@ return {
           normal = "<CR>",
           insert = "<C-s>",
         },
-        toggle = {
-          debug = "<leader>ad",
-          hint = "<leader>ah",
+        sidebar = {
+          apply_all = "A",
+          apply_cursor = "a",
+          switch_windows = "<Tab>",
+          reverse_switch_windows = "<S-Tab>",
         },
       },
       hints = { enabled = true },
