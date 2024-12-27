@@ -37,8 +37,6 @@ local lsp = {
   'texlab',
   'cmake',
   'sqlls',
-  'typst_lsp',
-  'bufls',
   'svls',
   'rust_analyzer',
   'eslint',
@@ -49,7 +47,6 @@ local lsp = {
   "dockerls",
   "docker_compose_language_service",
   "prismals",
-  -- "mdx_analyzer",
   "marksman",
   "vtsls",
   "jsonls"

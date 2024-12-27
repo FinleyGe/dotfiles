@@ -48,11 +48,11 @@ return {
     opts = {
       ---@alias Provider "openai" | "claude" | "azure"  | "copilot" | "cohere" | [string]
       provider = "openai",
+      auto_suggestion_provider = "openai",
       openai = {
         endpoint = "https://oneapi.fastgpt.in/v1",
         model = "gpt-4o-mini",
-        timeout = 30000,
-        ["local"] = false,
+        timeout = 10000,
         temperature = 0,
       },
       mappings = {
