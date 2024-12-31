@@ -164,17 +164,16 @@ return {
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
-  },
-  {
-    'gsuuon/tshjkl.nvim',
-    keys = "<leader>N",
-    opts = {
-      select_current_node = true,
-      keymaps = {
-        toggle = '<leader>N',
-      },
+  }, {
+  'gsuuon/tshjkl.nvim',
+  keys = "<leader>N",
+  opts = {
+    select_current_node = true,
+    keymaps = {
+      toggle = '<leader>N',
     },
   },
+},
   {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',

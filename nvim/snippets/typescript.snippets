@@ -25,6 +25,10 @@ snippet context "use context template"
 	};
 	export default ContextProvider
 
+snippet seesion "use session template"
+  await mongoSessionRun(async (session) => {
+    $1
+  });
 # common
 
 snippet iife "IIFE template"

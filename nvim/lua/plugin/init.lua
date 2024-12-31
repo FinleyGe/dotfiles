@@ -20,6 +20,7 @@ require('lazy').setup({
   require('plugin.git'),
   require('plugin.treesitter'),
   require('plugin.nvim-cmp'),
+  require('plugin.ai'),
   require('lsp'),
   require('plugin.tools'),
   require('plugin.telescope'),

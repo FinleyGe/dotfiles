@@ -40,9 +40,9 @@ wezterm.on('ActivatePaneDirection-down', function(window, pane)
 end)
 
 local function get_appearance()
-  -- if wezterm.gui then
-  --   return wezterm.gui.get_appearance()
-  -- end
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
   return 'Dark'
 end
 
@@ -200,6 +200,16 @@ config.keys = {
   { key = 't',   mods = 'LEADER',       action = act.ShowLauncher },
   { key = 'Tab', mods = 'LEADER',       action = act.ActivateTabRelative(1) },
   { key = 'Tab', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
+  {
+    key = '-',
+    mods = 'ALT',
+    action = act.AdjustPaneSize { 'Right', 5 },
+  },
+  {
+    key = '_',
+    mods = 'ALT',
+    action = act.AdjustPaneSize { 'Down', 5 },
+  },
 }
 
 config.use_fancy_tab_bar = false
