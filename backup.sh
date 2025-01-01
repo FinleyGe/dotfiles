@@ -19,6 +19,7 @@ cp ~/.config/zed $backup -r
 cp ~/.config/niri $backup -r
 cp ~/.config/waybar $backup -r
 cp ~/.config/mako $backup -r
+cp ~/.config/ghostty $backup -r
 
 echo "dotfiles copied"
 

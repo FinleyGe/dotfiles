@@ -85,10 +85,6 @@ input {
     position x=1280 y=0
 }
 
-output "HDMI-A-1" {
-  background-color "#708166"
-}
-
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -203,7 +199,7 @@ layout {
 spawn-at-startup "waybar";
 spawn-at-startup "mako";
 spawn-at-startup "xwayland-satellite";
-spawn-at-startup "swaybg -i ~/Pictures/bg.jpg";
+spawn-at-startup "swaybg" "-i" "~/Pictures/bg.jpg";
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

@@ -1,0 +1,5 @@
+# ghostty configuration file
+# author: FinleyGe
+# refer to https://ghostty.org/docs/config
+config-file = style.conf
+config-file = keybinds.conf
